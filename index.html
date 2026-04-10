@@ -1,1 +1,750 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Lo Digital — الحزمة الرقمية الأولى في الجزائر</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#f7c948;--gold2:#ff9a3c;--gold3:#ff6b35;
+  --dark:#0a0a0f;--dark2:#0f0f18;--dark3:#141420;
+  --green:#00c853;--red:#ff3d3d;--white:#fff;
+  --bronze:#cd7f32;--silver:#c0c0c0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;padding-top:48px}
 
+/* TOP BANNER */
+.top-banner{position:fixed;top:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,var(--gold3),var(--gold2),var(--gold),var(--gold2),var(--gold3));background-size:200% 100%;animation:shimmer 3s infinite;text-align:center;padding:12px 20px;font-family:'Tajawal',sans-serif;font-weight:900;font-size:14px;color:#000}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* FLOAT WA */
+.float-wa{position:fixed;bottom:24px;left:24px;background:#25d366;color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.6);z-index:1000;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* HERO */
+.hero{min-height:100vh;background:radial-gradient(ellipse at top,#1a1200,var(--dark) 65%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(247,201,72,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(247,201,72,.04) 1px,transparent 1px);background-size:55px 55px;pointer-events:none}
+.hero-badge{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#000;font-weight:900;font-size:14px;padding:10px 28px;border-radius:30px;margin-bottom:30px;position:relative;z-index:1;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 20px rgba(247,201,72,.4)}50%{box-shadow:0 0 50px rgba(247,201,72,.9)}}
+.hero h1{font-family:'Tajawal',sans-serif;font-size:clamp(30px,6vw,60px);font-weight:900;max-width:900px;margin-bottom:18px;line-height:1.25;position:relative;z-index:1}
+.hero h1 span{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.6);max-width:650px;margin-bottom:20px;line-height:1.9;position:relative;z-index:1}
+.hero-hook{background:rgba(247,201,72,.08);border:1px solid rgba(247,201,72,.25);border-radius:14px;padding:16px 24px;max-width:650px;margin-bottom:40px;position:relative;z-index:1;font-size:15px;color:rgba(255,255,255,.8);line-height:1.8}
+.hero-hook strong{color:var(--gold)}
+.stats-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:44px;position:relative;z-index:1}
+.stat{background:rgba(247,201,72,.07);border:1px solid rgba(247,201,72,.2);border-radius:14px;padding:14px 16px;text-align:center;min-width:90px}
+.stat-n{font-family:'Tajawal',sans-serif;font-weight:900;font-size:22px;color:var(--gold)}
+.stat-l{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));color:#000;font-family:'Tajawal',sans-serif;font-weight:900;font-size:20px;padding:18px 52px;border-radius:50px;text-decoration:none;box-shadow:0 8px 40px rgba(247,201,72,.5);transition:all .3s;position:relative;z-index:1}
+.btn-cta:hover{transform:translateY(-4px);box-shadow:0 16px 55px rgba(247,201,72,.7)}
+
+/* COUNTDOWN */
+.countdown-section{background:linear-gradient(135deg,#0f0c00,#1a1200);border-top:1px solid rgba(247,201,72,.2);border-bottom:1px solid rgba(247,201,72,.2);padding:24px 20px;text-align:center}
+.countdown-title{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:12px;letter-spacing:2px}
+.countdown-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cd-box{background:rgba(247,201,72,.1);border:1px solid rgba(247,201,72,.3);border-radius:12px;padding:12px 20px;min-width:80px;text-align:center}
+.cd-num{font-family:'Tajawal',sans-serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+.cd-label{font-size:11px;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* SECTIONS */
+.sec{padding:80px 20px}
+.sec-dark{background:var(--dark2)}
+.sec-darker{background:var(--dark3)}
+.container{max-width:1100px;margin:0 auto}
+.sec-title{font-family:'Tajawal',sans-serif;font-size:clamp(26px,5vw,42px);font-weight:900;text-align:center;margin-bottom:8px}
+.sec-title span{color:var(--gold)}
+.sec-sub{text-align:center;color:rgba(255,255,255,.5);font-size:15px;margin-bottom:10px}
+.divider{width:70px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));margin:12px auto 44px;border-radius:2px}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.why-card{background:rgba(255,255,255,.03);border:1px solid rgba(247,201,72,.15);border-radius:16px;padding:22px 16px;text-align:center;transition:all .3s}
+.why-card:hover{border-color:rgba(247,201,72,.4);transform:translateY(-4px)}
+.why-icon{font-size:30px;margin-bottom:10px}
+.why-title{font-size:13px;font-weight:700;margin-bottom:5px}
+.why-sub{font-size:11px;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* PRODUCTS */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:13px;max-width:1000px;margin:0 auto}
+.prod-card{background:rgba(255,255,255,.03);border:1px solid rgba(247,201,72,.12);border-radius:14px;padding:16px 12px;text-align:center;transition:all .3s}
+.prod-card:hover{border-color:rgba(247,201,72,.4);transform:translateY(-3px)}
+.prod-icon{font-size:26px;margin-bottom:6px}
+.prod-name{font-size:11px;font-weight:700;color:rgba(255,255,255,.88);line-height:1.4}
+.prod-qty{font-size:10px;color:var(--gold);margin-top:3px;font-weight:700}
+
+/* COMPARE */
+.compare-wrap{max-width:720px;margin:0 auto;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse}
+.compare-table th{background:rgba(247,201,72,.1);color:var(--gold);font-family:'Tajawal',sans-serif;font-size:16px;font-weight:900;padding:14px 10px;text-align:center;border-bottom:2px solid rgba(247,201,72,.3)}
+.compare-table td{padding:12px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px}
+.compare-table tr:hover td{background:rgba(247,201,72,.04)}
+.compare-table td:first-child{text-align:right;font-weight:700;color:rgba(255,255,255,.85)}
+.chk-y{color:var(--green);font-size:18px}
+.chk-n{color:rgba(255,255,255,.2);font-size:18px}
+.price-cell{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;color:var(--gold)}
+.dzd-cell{font-size:11px;color:rgba(255,255,255,.4)}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1020px;margin:0 auto}
+.card{border-radius:22px;overflow:hidden;transition:transform .3s;position:relative}
+.card:hover{transform:translateY(-5px)}
+.card-head{padding:22px;text-align:center}
+.card-head h2{font-family:'Tajawal',sans-serif;font-size:26px;font-weight:900;margin-bottom:5px}
+.card-head p{font-size:12px;opacity:.8}
+.card-body{padding:18px 22px}
+.card-chk{list-style:none}
+.card-chk li{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:12px;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.5;color:rgba(255,255,255,.88)}
+.ic-g{color:var(--green);flex-shrink:0;font-size:13px;margin-top:1px}
+.ic-s{color:var(--silver);flex-shrink:0;font-size:13px;margin-top:1px}
+.ic-b{color:var(--bronze);flex-shrink:0;font-size:13px;margin-top:1px}
+.ic-y{color:var(--gold);flex-shrink:0;font-size:13px;margin-top:1px}
+.lbl{font-size:10px;font-weight:700;letter-spacing:2px;margin:12px 0 7px;padding-bottom:5px;border-bottom:1px solid rgba(247,201,72,.2);color:var(--gold)}
+.price-box{text-align:center;padding:16px 22px 0}
+.p-old{font-family:'Tajawal',sans-serif;font-size:20px;color:rgba(255,80,80,.5);text-decoration:line-through;margin-bottom:4px}
+.p-new{font-family:'Tajawal',sans-serif;font-size:52px;font-weight:900;line-height:1;color:var(--gold);filter:drop-shadow(0 0 14px rgba(247,201,72,.5))}
+.p-dzd{font-size:13px;color:rgba(247,201,72,.6);margin-top:4px;font-weight:700}
+.p-note{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px}
+.save{display:inline-block;background:var(--green);color:#000;font-weight:900;font-size:12px;padding:4px 12px;border-radius:12px;margin-top:7px}
+.urgency{text-align:center;font-size:12px;color:rgba(255,150,150,.85);padding:7px 22px}
+
+.card-bronze{background:linear-gradient(160deg,#1c0e00,#110800);border:2px solid rgba(205,127,50,.45);box-shadow:0 0 40px rgba(205,127,50,.12)}
+.card-bronze .card-head{background:linear-gradient(135deg,#8b4513,#cd7f32,#daa520)}
+.card-bronze .card-head h2,.card-bronze .card-head p{color:#000}
+.btn-bronze{display:block;margin:14px 22px 18px;background:linear-gradient(135deg,#8b4513,#cd7f32);color:#000;font-family:'Tajawal',sans-serif;font-weight:900;font-size:16px;padding:13px;border-radius:50px;text-align:center;text-decoration:none;transition:all .3s}
+.btn-bronze:hover{box-shadow:0 8px 25px rgba(205,127,50,.4)}
+
+.card-silver{background:linear-gradient(160deg,#0d1a1a,#080f0f);border:2px solid rgba(192,192,192,.4);box-shadow:0 0 40px rgba(192,192,192,.1)}
+.card-silver .card-head{background:linear-gradient(135deg,#777,#c0c0c0,#e8e8e8)}
+.card-silver .card-head h2,.card-silver .card-head p{color:#111}
+.btn-silver{display:block;margin:14px 22px 18px;background:linear-gradient(135deg,#888,#ddd);color:#000;font-family:'Tajawal',sans-serif;font-weight:900;font-size:16px;padding:13px;border-radius:50px;text-align:center;text-decoration:none;transition:all .3s}
+.btn-silver:hover{box-shadow:0 8px 25px rgba(192,192,192,.3)}
+
+.card-gold{background:linear-gradient(160deg,#100d00,#1a1400);border:2px solid var(--gold);box-shadow:0 0 60px rgba(247,201,72,.28);position:relative}
+.card-gold-badge{position:absolute;top:0;right:0;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-weight:900;font-size:11px;padding:7px 18px;border-radius:0 20px 0 20px;z-index:2}
+.card-gold .card-head{background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3))}
+.card-gold .card-head h2,.card-gold .card-head p{color:#000}
+.btn-gold{display:block;margin:14px 22px 8px;background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));color:#000;font-family:'Tajawal',sans-serif;font-weight:900;font-size:16px;padding:13px;border-radius:50px;text-align:center;text-decoration:none;box-shadow:0 8px 30px rgba(247,201,72,.4);transition:all .3s}
+.btn-gold:hover{box-shadow:0 15px 40px rgba(247,201,72,.6)}
+
+/* COURSES */
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1060px;margin:0 auto}
+.course-card{background:rgba(255,255,255,.03);border:1px solid rgba(247,201,72,.13);border-radius:20px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.course-card:hover{border-color:rgba(247,201,72,.45);transform:translateY(-5px);box-shadow:0 14px 44px rgba(247,201,72,.14)}
+.course-banner{height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.app-icons-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.app-icon-badge{padding:5px 12px;border-radius:10px;font-size:12px;font-weight:700;color:#fff}
+.course-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.course-tag{display:inline-block;background:rgba(247,201,72,.12);border:1px solid rgba(247,201,72,.3);color:var(--gold);font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-bottom:10px}
+.course-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;color:var(--white);margin-bottom:8px;line-height:1.3}
+.course-hook{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:12px;line-height:1.7;font-style:italic}
+.course-list{list-style:none;margin-bottom:14px;flex:1}
+.course-list li{font-size:12px;color:rgba(255,255,255,.82);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:7px;align-items:flex-start;line-height:1.5}
+.course-price-row{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.c-old{font-size:14px;color:rgba(255,80,80,.5);text-decoration:line-through}
+.c-new{font-family:'Tajawal',sans-serif;font-size:34px;font-weight:900;color:var(--gold)}
+.c-save{background:var(--green);color:#000;font-size:11px;font-weight:900;padding:3px 10px;border-radius:10px}
+.c-dzd{font-size:12px;color:rgba(247,201,72,.6);font-weight:700;margin-bottom:12px}
+.btn-course{display:block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-family:'Tajawal',sans-serif;font-weight:900;font-size:14px;padding:12px;border-radius:30px;text-align:center;text-decoration:none;transition:all .3s}
+.btn-course:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(247,201,72,.4)}
+
+/* STEPS */
+.steps-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:820px;margin:0 auto}
+.step{background:rgba(255,255,255,.03);border:1px solid rgba(247,201,72,.14);border-radius:20px;padding:28px 20px;text-align:center}
+.step-n{font-family:'Tajawal',sans-serif;font-size:52px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:12px}
+.step-t{font-size:16px;font-weight:700;margin-bottom:8px}
+.step-d{font-size:12px;color:rgba(255,255,255,.5);line-height:1.8}
+.step-choices{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.step-choice{background:rgba(247,201,72,.08);border:1px solid rgba(247,201,72,.2);border-radius:10px;padding:8px 12px;font-size:12px;color:rgba(255,255,255,.8)}
+.step-choice strong{color:var(--gold)}
+
+/* PAYMENT */
+.pay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;max-width:960px;margin:0 auto}
+.pay-card{border-radius:20px;padding:28px 20px;text-align:center;transition:all .3s}
+.pay-card:hover{transform:translateY(-5px)}
+.pay-app-logo{width:80px;height:80px;border-radius:20px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.pay-baridimob{background:linear-gradient(135deg,#002d80,#0050c0);border:2px solid rgba(0,100,220,.5)}
+.pay-baridimob .pay-app-logo{background:linear-gradient(135deg,#0055c8,#003d99)}
+.pay-binance{background:linear-gradient(135deg,#1a1200,#2c1f00);border:2px solid rgba(247,201,72,.5)}
+.pay-binance .pay-app-logo{background:linear-gradient(135deg,#f7c948,#d4a800);color:#000}
+.pay-redotpay{background:linear-gradient(135deg,#200000,#380000);border:2px solid rgba(220,50,50,.5)}
+.pay-redotpay .pay-app-logo{background:linear-gradient(135deg,#cc0000,#990000)}
+.pay-ccp{background:linear-gradient(135deg,#001800,#002c00);border:2px solid rgba(0,180,50,.4)}
+.pay-ccp .pay-app-logo{background:linear-gradient(135deg,#006600,#004400)}
+.pay-name{font-size:20px;font-weight:900;margin-bottom:6px;color:var(--white)}
+.pay-type{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:12px}
+.pay-info{background:rgba(0,0,0,.35);border-radius:12px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.85);word-break:break-all;line-height:1.8}
+.pay-note{text-align:center;margin-top:28px;font-size:13px;color:rgba(255,200,80,.8);max-width:720px;margin-left:auto;margin-right:auto;background:rgba(247,201,72,.06);border:1px solid rgba(247,201,72,.2);border-radius:14px;padding:20px 24px;line-height:2}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(247,201,72,.12);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700}
+.faq-q::after{content:'+';color:var(--gold);font-size:22px;font-weight:300;transition:transform .3s;flex-shrink:0;margin-right:10px}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:13px;color:rgba(255,255,255,.65);line-height:1.9}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a-inner{padding:0 20px 18px}
+
+/* CTA */
+.cta-final{background:radial-gradient(ellipse at center,#1a1200,var(--dark) 70%);padding:80px 20px;text-align:center}
+.cta-final h2{font-family:'Tajawal',sans-serif;font-size:clamp(24px,5vw,46px);font-weight:900;margin-bottom:14px}
+.cta-final h2 span{color:var(--gold)}
+.cta-final p{color:rgba(255,255,255,.55);margin-bottom:36px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8}
+.btn-wa{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:'Tajawal',sans-serif;font-weight:900;font-size:22px;padding:20px 52px;border-radius:50px;text-decoration:none;box-shadow:0 8px 40px rgba(37,211,102,.45);transition:all .3s}
+.btn-wa:hover{transform:translateY(-4px);box-shadow:0 16px 55px rgba(37,211,102,.65)}
+.cta-note{margin-top:18px;font-size:13px;color:rgba(255,255,255,.4)}
+.cta-urg{margin-top:10px;font-size:13px;color:rgba(255,150,100,.85)}
+
+footer{background:#040404;padding:24px;text-align:center;font-size:12px;color:rgba(255,255,255,.2);border-top:1px solid rgba(247,201,72,.08)}
+
+.fade-in{opacity:0;transform:translateY(28px);transition:all .65s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:640px){
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid,.courses-grid{grid-template-columns:1fr}
+  .pay-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">🔥 عرض محدود — لأول 50 شخص فقط! الحزمة الرقمية الأولى في الجزائر 🇩🇿</div>
+
+<a href="https://wa.me/213781044548?text=السلام%20عليكم%20أريد%20الاستفسار%20عن%20So%20Lo%20Digital%20🔥" class="float-wa" target="_blank">💬</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏆 So Lo Digital — الحزمة الرقمية الأولى في الجزائر</div>
+  <h1>احصل على <span>باكك الرقمي</span> الآن<br>وابدأ الربح من الإنترنت!</h1>
+  <p class="hero-sub">كورسات احترافية + منتجات جاهزة للبيع — كل ما تحتاجه في مكان واحد</p>
+  <div class="hero-hook">💡 <strong>فكر معايا —</strong> المشكلة مش في العزيمة — المشكلة في <strong>الأدوات الصح</strong><br>هذا الباك يعطيك كل الأدوات — أنت جيب غير النية 🎯</div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">+30M</div><div class="stat-l">منتج رقمي</div></div>
+    <div class="stat"><div class="stat-n">+400K</div><div class="stat-l">كتاب رقمي</div></div>
+    <div class="stat"><div class="stat-n">+999</div><div class="stat-l">أمر ChatGPT</div></div>
+    <div class="stat"><div class="stat-n">11</div><div class="stat-l">كورس حصري</div></div>
+    <div class="stat"><div class="stat-n">4.8K</div><div class="stat-l">عميل راضي</div></div>
+  </div>
+  <a href="#pricing" class="btn-cta">🔥 اكتشف الباكات الآن</a>
+</section>
+
+<!-- COUNTDOWN -->
+<div class="countdown-section">
+  <div class="countdown-title">⏳ العرض ينتهي خلال</div>
+  <div class="countdown-row">
+    <div class="cd-box"><div class="cd-num" id="cd-h">23</div><div class="cd-label">ساعة</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-m">59</div><div class="cd-label">دقيقة</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-s">59</div><div class="cd-label">ثانية</div></div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="sec sec-dark fade-in">
+  <div class="container">
+    <h2 class="sec-title">💎 لماذا <span>So Lo Digital؟</span></h2>
+    <div class="divider"></div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">✅</div><div class="why-title">منتجات حقيقية</div><div class="why-sub">مضمونة 100% — مش وهمية</div></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">توصيل 24 ساعة</div><div class="why-sub">بطاقتك تصلك فوراً بعد الدفع</div></div>
+      <div class="why-card"><div class="why-icon">💬</div><div class="why-title">دعم على واتساب</div><div class="why-sub">أنا هنا لمساعدتك دائماً</div></div>
+      <div class="why-card"><div class="why-icon">👥</div><div class="why-title">4,800+ عميل راضي</div><div class="why-sub">آلاف الجزائريين يثقون بنا</div></div>
+      <div class="why-card"><div class="why-icon">🔄</div><div class="why-title">تحديثات مجانية</div><div class="why-sub">للبطاقة الذهبية للأبد</div></div>
+      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">دفع آمن</div><div class="why-sub">4 طرق دفع مضمونة</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sec fade-in">
+  <div class="container">
+    <h2 class="sec-title">📦 وش يحتوي <span>الباك؟</span></h2>
+    <p class="sec-sub">أكثر من 30 منتج رقمي — كلها لك فور الشراء</p>
+    <div class="divider"></div>
+    <div class="prod-grid">
+      <div class="prod-card"><div class="prod-icon">🌐</div><div class="prod-name">منتجات رقمية 2026</div><div class="prod-qty">+30 مليون</div></div>
+      <div class="prod-card"><div class="prod-icon">🏪</div><div class="prod-name">قوالب شوبيفاي</div><div class="prod-qty">+300 قالب</div></div>
+      <div class="prod-card"><div class="prod-icon">👕</div><div class="prod-name">نماذج سيغز للألبسة</div><div class="prod-qty">جاهزة</div></div>
+      <div class="prod-card"><div class="prod-icon">🎬</div><div class="prod-name">فيديوهات تحفيزية</div><div class="prod-qty">+100,000</div></div>
+      <div class="prod-card"><div class="prod-icon">🔧</div><div class="prod-name">إضافات WordPress</div><div class="prod-qty">+7200</div></div>
+      <div class="prod-card"><div class="prod-icon">🤖</div><div class="prod-name">أوامر ChatGPT</div><div class="prod-qty">+999 + 180 مهمة</div></div>
+      <div class="prod-card"><div class="prod-icon">🎨</div><div class="prod-name">قوالب كانفا</div><div class="prod-qty">+1000 قالب</div></div>
+      <div class="prod-card"><div class="prod-icon">📚</div><div class="prod-name">كتب رقمية</div><div class="prod-qty">+400,000</div></div>
+      <div class="prod-card"><div class="prod-icon">🌍</div><div class="prod-name">صفحات هبوط</div><div class="prod-qty">+1000 Elementor</div></div>
+      <div class="prod-card"><div class="prod-icon">👕</div><div class="prod-name">تصاميم تيشرتات</div><div class="prod-qty">+100,000</div></div>
+      <div class="prod-card"><div class="prod-icon">🧠</div><div class="prod-name">فيديوهات AI</div><div class="prod-qty">+500</div></div>
+      <div class="prod-card"><div class="prod-icon">✍️</div><div class="prod-name">نصوص البيع</div><div class="prod-qty">قوالب احترافية</div></div>
+      <div class="prod-card"><div class="prod-icon">😂</div><div class="prod-name">مقاطع مضحكة 2D</div><div class="prod-qty">جاهزة للنشر</div></div>
+      <div class="prod-card"><div class="prod-icon">🏋️</div><div class="prod-name">فيديوهات الصالة</div><div class="prod-qty">+1000</div></div>
+      <div class="prod-card"><div class="prod-icon">🖼️</div><div class="prod-name">صور مصغرة</div><div class="prod-qty">+600</div></div>
+      <div class="prod-card"><div class="prod-icon">🏷️</div><div class="prod-name">قوالب Logo</div><div class="prod-qty">600</div></div>
+      <div class="prod-card"><div class="prod-icon">💻</div><div class="prod-name">برامج التعلم</div><div class="prod-qty">عن بعد</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="sec sec-dark fade-in">
+  <div class="container">
+    <h2 class="sec-title">📊 مقارنة <span>البطاقات</span></h2>
+    <div class="divider"></div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <tr><th></th><th>🥉 برونزية</th><th>🥈 فضية</th><th>🥇 ذهبية</th></tr>
+        <tr><td>منتجات رقمية</td><td><span class="chk-y">✔</span></td><td><span class="chk-n">✗</span></td><td><span class="chk-y">✔</span></td></tr>
+        <tr><td>كورسات حصرية</td><td><span class="chk-n">✗</span></td><td><span class="chk-y">✔</span></td><td><span class="chk-y">✔</span></td></tr>
+        <tr><td>متابعة شخصية</td><td><span class="chk-n">✗</span></td><td><span class="chk-n">✗</span></td><td><span class="chk-y">✔</span></td></tr>
+        <tr><td>تحديثات مجانية</td><td><span class="chk-n">✗</span></td><td><span class="chk-n">✗</span></td><td><span class="chk-y">✔</span></td></tr>
+        <tr>
+          <td>السعر</td>
+          <td><div class="price-cell">$10</div><div class="dzd-cell">250 دج</div></td>
+          <td><div class="price-cell">$10</div><div class="dzd-cell">250 دج</div></td>
+          <td><div class="price-cell">$20</div><div class="dzd-cell">500 دج</div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec sec-darker fade-in" id="pricing">
+  <div class="container">
+    <h2 class="sec-title">🏆 اختر <span>بطاقتك</span></h2>
+    <p class="sec-sub">كل بطاقة هي استثمار يرجع عليك من أول بيعة</p>
+    <div class="divider"></div>
+    <div class="pricing-grid">
+
+      <!-- BRONZE -->
+      <div class="card card-bronze">
+        <div class="card-head"><h2>🥉 البطاقة البرونزية</h2><p>منتجات رقمية جاهزة للبيع مباشرة</p></div>
+        <div class="card-body">
+          <p style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.7;font-style:italic">💡 مش محتاج تنشئ منتجات — ابدأ البيع من اليوم الأول!</p>
+          <ul class="card-chk">
+            <li><span class="ic-b">✔</span>+30 مليون منتج رقمي 2026</li>
+            <li><span class="ic-b">✔</span>+300 قالب شوبيفاي مميز</li>
+            <li><span class="ic-b">✔</span>نماذج متجهة سيغز للألبسة</li>
+            <li><span class="ic-b">✔</span>+100,000 فيديو تحفيزي جاهز للنشر</li>
+            <li><span class="ic-b">✔</span>+7200 إضافة وقالب WordPress</li>
+            <li><span class="ic-b">✔</span>+999 أمر ChatGPT + 180 مهمة عملية</li>
+            <li><span class="ic-b">✔</span>+1000 قالب كانفا فاخر قابل للتعديل</li>
+            <li><span class="ic-b">✔</span>+400,000 كتاب رقمي</li>
+            <li><span class="ic-b">✔</span>+1000 قالب صفحات هبوط Elementor Pro</li>
+            <li><span class="ic-b">✔</span>+100,000 تصميم تيشرتات قابل للتعديل</li>
+            <li><span class="ic-b">✔</span>+500 فيديو ربح من الإنترنت والذكاء الاصطناعي</li>
+            <li><span class="ic-b">✔</span>نصوص البيع + قوالب الرد على الزبائن</li>
+            <li><span class="ic-b">✔</span>مجموعة مقاطع مضحكة ثنائية الأبعاد</li>
+            <li><span class="ic-b">✔</span>+1000 مقطع فيديو تحفيزي لشباب الصالة</li>
+            <li><span class="ic-b">✔</span>+600 صورة مصغرة + مكتبة</li>
+            <li><span class="ic-b">✔</span>600 قالب شعار Logo قابل للتعديل</li>
+            <li><span class="ic-b">✔</span>برامج مساعدة للتعلم والتطوير عن بعد</li>
+          </ul>
+        </div>
+        <div class="price-box">
+          <div class="p-old">$30</div>
+          <div class="p-new">$10</div>
+          <div class="p-dzd">≈ 250 دينار جزائري</div>
+          <div><span class="save">وفّر $20</span></div>
+          <div class="p-note">دفع مرة واحدة — بدون اشتراك</div>
+        </div>
+        <a href="https://wa.me/213781044548?text=أريد%20البطاقة%20البرونزية%20%2410%20🥉" class="btn-bronze" target="_blank">اشتري الآن</a>
+      </div>
+
+      <!-- SILVER -->
+      <div class="card card-silver">
+        <div class="card-head"><h2>🥈 البطاقة الفضية</h2><p>كورسات حصرية من الصفر للاحتراف</p></div>
+        <div class="card-body">
+          <p style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.7;font-style:italic">💡 ناس تدفع +$500 على كورس واحد. أنت بـ$10 تاخذ 11 كورس!</p>
+          <ul class="card-chk">
+            <li><span class="ic-s">⭐</span>كورس إنشاء حسابات TikTok بيتا + بيعها + العمل عليها</li>
+            <li><span class="ic-s">⭐</span>كورس إنشاء حساب TikTok Ads يستهدف الجزائر</li>
+            <li><span class="ic-s">⭐</span>كورس الترويج على إنستغرام وفيسبوك</li>
+            <li><span class="ic-s">⭐</span>كورس فتح حسابات استقبال الأموال PayPal/Skrill/Binance/RedotPay/Wise</li>
+            <li><span class="ic-s">⭐</span>كورس فتح Etsy / Envato / Gumroad مجاناً لبيع منتجاتك</li>
+            <li><span class="ic-s">⭐</span>كورس احتراف TikTok بيتا — أكثر من 40 فيديو من 0 للاحتراف وتحقيق الأرباح</li>
+            <li><span class="ic-s">⭐</span>كورس كانفا برو — معلومات مهمة + كيفية بيعها</li>
+            <li><span class="ic-s">⭐</span>كورس بيع الكتب الرقمية من 0 للاحتراف</li>
+            <li><span class="ic-s">⭐</span>كورس احتراف الرسم المصغر من 0</li>
+            <li><span class="ic-s">⭐</span>كورس تنمية وبداية صناعة المحتوى على يوتيوب</li>
+            <li><span class="ic-s">⭐</span>كورس كامل لاحتراف إعلانات فيسبوك وإنستغرام من 0 للاحتراف</li>
+          </ul>
+        </div>
+        <div class="price-box">
+          <div class="p-old">$40</div>
+          <div class="p-new">$10</div>
+          <div class="p-dzd">≈ 250 دينار جزائري</div>
+          <div><span class="save">وفّر $30</span></div>
+          <div class="p-note">دفع مرة واحدة — بدون اشتراك</div>
+        </div>
+        <a href="https://wa.me/213781044548?text=أريد%20البطاقة%20الفضية%20%2410%20🥈" class="btn-silver" target="_blank">اشتري الآن</a>
+      </div>
+
+      <!-- GOLD -->
+      <div class="card card-gold">
+        <div class="card-gold-badge">⭐ الأكثر طلباً</div>
+        <div class="card-head"><h2>🥇 البطاقة الذهبية</h2><p>كل شيء — منتجات + كورسات + متابعة شخصية</p></div>
+        <div class="card-body">
+          <p style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.7;font-style:italic">💡 هذا مش مجرد باك — هذا مشروع كامل. تتعلم + تطبق + تبيع!</p>
+          <div class="lbl">📦 المنتجات الجاهزة — كل محتوى البرونزية</div>
+          <ul class="card-chk">
+            <li><span class="ic-g">✔</span>+30 مليون منتج رقمي 2026</li>
+            <li><span class="ic-g">✔</span>+300 قالب شوبيفاي مميز</li>
+            <li><span class="ic-g">✔</span>نماذج متجهة سيغز للألبسة</li>
+            <li><span class="ic-g">✔</span>+100,000 فيديو تحفيزي جاهز للنشر</li>
+            <li><span class="ic-g">✔</span>+7200 إضافة وقالب WordPress</li>
+            <li><span class="ic-g">✔</span>+999 أمر ChatGPT + 180 مهمة عملية</li>
+            <li><span class="ic-g">✔</span>+1000 قالب كانفا فاخر قابل للتعديل</li>
+            <li><span class="ic-g">✔</span>+400,000 كتاب رقمي</li>
+            <li><span class="ic-g">✔</span>+1000 قالب صفحات هبوط Elementor Pro</li>
+            <li><span class="ic-g">✔</span>+100,000 تصميم تيشرتات قابل للتعديل</li>
+            <li><span class="ic-g">✔</span>+500 فيديو ربح من الإنترنت والذكاء الاصطناعي</li>
+            <li><span class="ic-g">✔</span>نصوص البيع + قوالب الرد على الزبائن</li>
+            <li><span class="ic-g">✔</span>مجموعة مقاطع مضحكة ثنائية الأبعاد</li>
+            <li><span class="ic-g">✔</span>+1000 مقطع فيديو تحفيزي لشباب الصالة</li>
+            <li><span class="ic-g">✔</span>+600 صورة مصغرة + مكتبة</li>
+            <li><span class="ic-g">✔</span>600 قالب شعار Logo قابل للتعديل</li>
+            <li><span class="ic-g">✔</span>برامج مساعدة للتعلم والتطوير عن بعد</li>
+          </ul>
+          <div class="lbl">🎓 الكورسات الحصرية — كل محتوى الفضية</div>
+          <ul class="card-chk">
+            <li><span class="ic-y">⭐</span>كورس إنشاء حسابات TikTok بيتا + بيعها + العمل عليها</li>
+            <li><span class="ic-y">⭐</span>كورس إنشاء حساب TikTok Ads يستهدف الجزائر</li>
+            <li><span class="ic-y">⭐</span>كورس الترويج على إنستغرام وفيسبوك</li>
+            <li><span class="ic-y">⭐</span>كورس استقبال الأموال PayPal/Skrill/Binance/RedotPay/Wise</li>
+            <li><span class="ic-y">⭐</span>كورس فتح Etsy / Envato / Gumroad مجاناً</li>
+            <li><span class="ic-y">⭐</span>كورس احتراف TikTok بيتا — 40+ فيديو من 0 للاحتراف</li>
+            <li><span class="ic-y">⭐</span>كورس كانفا برو — معلومات مهمة + كيفية بيعها</li>
+            <li><span class="ic-y">⭐</span>كورس بيع الكتب الرقمية من 0 للاحتراف</li>
+            <li><span class="ic-y">⭐</span>كورس احتراف الرسم المصغر من 0</li>
+            <li><span class="ic-y">⭐</span>كورس تنمية وصناعة المحتوى على يوتيوب</li>
+            <li><span class="ic-y">⭐</span>كورس كامل إعلانات فيسبوك وإنستغرام من 0 للاحتراف</li>
+          </ul>
+          <div class="lbl">👑 حصري الذهبية فقط</div>
+          <ul class="card-chk">
+            <li><span class="ic-y">👑</span>متابعة شخصية مباشرة لمساعدتك في التطبيق</li>
+            <li><span class="ic-y">👑</span>جميع التحديثات المستقبلية مجاناً للأبد</li>
+          </ul>
+        </div>
+        <div class="price-box">
+          <div class="p-old">$60</div>
+          <div class="p-new">$20</div>
+          <div class="p-dzd">≈ 500 دينار جزائري</div>
+          <div><span class="save">وفّر $40</span></div>
+          <div class="p-note">دفع مرة واحدة — بدون اشتراك</div>
+        </div>
+        <a href="https://wa.me/213781044548?text=أريد%20البطاقة%20الذهبية%20%2420%20🥇🔥" class="btn-gold" target="_blank">🔥 اشتري الباك الآن</a>
+        <div class="urgency">⏳ لأول 50 شخص فقط!</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="sec fade-in" id="courses">
+  <div class="container">
+    <h2 class="sec-title">🎓 الكورسات <span>المتاحة لوحدها</span></h2>
+    <p class="sec-sub">أو خذ الباك الذهبي واحصل على الكل بسعر أوفر!</p>
+    <div class="divider"></div>
+    <div class="courses-grid">
+
+      <!-- ADS -->
+      <div class="course-card">
+        <div class="course-banner" style="background:linear-gradient(135deg,#0a0500,#1a0a00)">
+          <div style="text-align:center">
+            <div style="display:flex;gap:14px;justify-content:center;align-items:center">
+              <div style="width:56px;height:56px;background:linear-gradient(135deg,#1877f2,#0a5dc2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(24,119,242,.4)">📘</div>
+              <div style="width:56px;height:56px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(220,39,67,.4)">📸</div>
+              <div style="width:56px;height:56px;background:#000;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(255,0,80,.4);border:1px solid rgba(255,0,80,.4)">🎵</div>
+            </div>
+            <div style="color:rgba(255,255,255,.6);font-size:11px;margin-top:8px">Facebook · Instagram · TikTok Ads</div>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">🔥 الأكثر طلباً</span>
+          <div class="course-title">كورس الإعلانات الممولة الشامل</div>
+          <div class="course-hook">"الإعلان الصح هو اللي يجيب الزبون — مش المنتج وحده"</div>
+          <ul class="course-list">
+            <li><span class="ic-y">✔</span>كورس TikTok Ads — استهداف الجزائريين بدقة</li>
+            <li><span class="ic-y">✔</span>كورس كامل إعلانات فيسبوك وإنستغرام من 0 للاحتراف</li>
+            <li><span class="ic-y">✔</span>كورس الترويج الاحترافي على إنستغرام وفيسبوك</li>
+            <li><span class="ic-y">✔</span>كورس فتح حسابات Binance وRedotPay لتمويل الحملات الإعلانية</li>
+            <li><span class="ic-y">✔</span>+300 قالب شوبيفاي جاهز للبيع</li>
+            <li><span class="ic-y">✔</span>نصوص البيع + قوالب الرد الاحترافية على الزبائن</li>
+          </ul>
+          <div class="course-price-row">
+            <span class="c-old">$20</span>
+            <span class="c-new">$10</span>
+            <span class="c-save">وفّر 50%</span>
+          </div>
+          <div class="c-dzd">≈ 250 دينار جزائري</div>
+          <a href="https://wa.me/213781044548?text=أريد%20كورس%20الإعلانات%20الممولة%20%2410" class="btn-course" target="_blank">🔥 اطلب الكورس الآن</a>
+        </div>
+      </div>
+
+      <!-- TIKTOK -->
+      <div class="course-card">
+        <div class="course-banner" style="background:linear-gradient(135deg,#0a0014,#000d14)">
+          <div style="text-align:center">
+            <div style="display:flex;gap:14px;justify-content:center;align-items:center">
+              <div style="width:72px;height:72px;background:#000;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 4px 20px rgba(255,0,80,.5);border:2px solid rgba(255,0,80,.5)">🎵</div>
+            </div>
+            <div style="color:rgba(255,0,80,.8);font-size:12px;font-weight:700;margin-top:8px">TikTok Beta — French Account</div>
+            <div style="color:rgba(255,255,255,.4);font-size:10px">🌍 استهداف الأجانب</div>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">🌍 استهداف الأجانب</span>
+          <div class="course-title">كورس TikTok بيتا — من 0 للاحتراف</div>
+          <div class="course-hook">"تخيل تنام وأنت تجمع مشاهدات من أوروبا وأمريكا!"</div>
+          <ul class="course-list">
+            <li><span class="ic-y">✔</span>كورس إنشاء حسابات TikTok بيتا + بيعها + العمل عليها</li>
+            <li><span class="ic-y">✔</span>كورس احتراف TikTok بيتا — أكثر من 40 فيديو من 0 للاحتراف وتحقيق الأرباح</li>
+            <li><span class="ic-y">✔</span>+100,000 فيديو تحفيزي جاهز للنشر يستهدف الأجانب</li>
+            <li><span class="ic-y">✔</span>+500 فيديو ربح من الإنترنت والذكاء الاصطناعي يستهدف الأجانب</li>
+            <li><span class="ic-y">✔</span>+1000 مقطع فيديو تحفيزي لشباب الصالة يستهدف الأجانب</li>
+            <li><span class="ic-y">✔</span>مجموعة مقاطع مضحكة تستهدف الأجانب</li>
+          </ul>
+          <div class="course-price-row">
+            <span class="c-old">$20</span>
+            <span class="c-new">$10</span>
+            <span class="c-save">وفّر 50%</span>
+          </div>
+          <div class="c-dzd">≈ 250 دينار جزائري</div>
+          <a href="https://wa.me/213781044548?text=أريد%20كورس%20TikTok%20بيتا%20%2410" class="btn-course" target="_blank">🎵 اطلب الكورس الآن</a>
+        </div>
+      </div>
+
+      <!-- BOOKS -->
+      <div class="course-card">
+        <div class="course-banner" style="background:linear-gradient(135deg,#0a0800,#1a1200)">
+          <div style="text-align:center">
+            <div style="display:flex;gap:10px;justify-content:center;align-items:center">
+              <div style="width:52px;height:52px;background:linear-gradient(135deg,#f1641e,#d94f0b);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 15px rgba(241,100,30,.4)">🛍️</div>
+              <div style="width:52px;height:52px;background:linear-gradient(135deg,#ff90e8,#e040c0);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 15px rgba(255,144,232,.4)">📦</div>
+              <div style="width:52px;height:52px;background:linear-gradient(135deg,#81b441,#5a8a1e);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 15px rgba(129,180,65,.4)">🌿</div>
+            </div>
+            <div style="color:rgba(255,255,255,.5);font-size:11px;margin-top:8px">Etsy · Gumroad · Envato</div>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">💰 دخل مستمر</span>
+          <div class="course-title">كورس بيع الكتب الرقمية — من 0 للاحتراف</div>
+          <div class="course-hook">"عندك +400,000 كتاب — كل اللي تحتاجه هو تعرف كيف تبيعها!"</div>
+          <ul class="course-list">
+            <li><span class="ic-y">✔</span>كورس بيع الكتب الرقمية من 0 للاحتراف كاملاً</li>
+            <li><span class="ic-y">✔</span>+400,000 كتاب رقمي جاهز للبيع فوراً</li>
+            <li><span class="ic-y">✔</span>كورس فتح Etsy / Envato / Gumroad مجاناً لبيع منتجاتك خاصتاً الكتب الرقمية</li>
+            <li><span class="ic-y">✔</span>كورس فتح حسابات استقبال الأموال من جميع دول العالم</li>
+            <li><span class="ic-y">✔</span>PayPal + Skrill + Binance + RedotPay + Wise</li>
+          </ul>
+          <div class="course-price-row">
+            <span class="c-old">$20</span>
+            <span class="c-new">$10</span>
+            <span class="c-save">وفّر 50%</span>
+          </div>
+          <div class="c-dzd">≈ 250 دينار جزائري</div>
+          <a href="https://wa.me/213781044548?text=أريد%20كورس%20بيع%20الكتب%20%2410" class="btn-course" target="_blank">📚 اطلب الكورس الآن</a>
+        </div>
+      </div>
+
+      <!-- CANVA -->
+      <div class="course-card">
+        <div class="course-banner" style="background:linear-gradient(135deg,#0a0014,#100028)">
+          <div style="text-align:center">
+            <div style="display:flex;gap:14px;justify-content:center;align-items:center">
+              <div style="width:72px;height:72px;background:linear-gradient(135deg,#00c4cc,#7d2ae8);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 4px 20px rgba(125,42,232,.5)">🎨</div>
+            </div>
+            <div style="color:rgba(255,255,255,.5);font-size:12px;margin-top:8px;font-weight:700">Canva Pro</div>
+            <div style="color:rgba(125,42,232,.8);font-size:11px">+1000 قالب فاخر</div>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-tag">🎨 عرض خاص $5</span>
+          <div class="course-title">كورس كانفا برو + 1000 قالب فاخر</div>
+          <div class="course-hook">"$5 فقط — أقل من قهوة المقهى — مقابل دخل يومي من التصاميم!"</div>
+          <ul class="course-list">
+            <li><span class="ic-y">✔</span>كورس كانفا برو — معلومات مهمة وكيفية بيعها</li>
+            <li><span class="ic-y">✔</span>+1000 قالب كانفا فاخر قابل للتعديل الكامل</li>
+          </ul>
+          <div class="course-price-row">
+            <span class="c-old">$15</span>
+            <span class="c-new">$5</span>
+            <span class="c-save">عرض خاص 🔥</span>
+          </div>
+          <div class="c-dzd">≈ 125 دينار جزائري</div>
+          <a href="https://wa.me/213781044548?text=أريد%20كورس%20كانفا%20برو%20%245" class="btn-course" target="_blank">🎨 اطلب الكورس الآن</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="sec sec-dark fade-in">
+  <div class="container">
+    <h2 class="sec-title">📋 كيف <span>تحصل على الباك؟</span></h2>
+    <p class="sec-sub">3 خطوات بسيطة — تاخذ باكك في أقل من 24 ساعة</p>
+    <div class="divider"></div>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-t">اختر الباك أو الكورس</div>
+        <div class="step-choices">
+          <div class="step-choice">🥉 <strong>برونزية</strong> — $10 / 250 دج — منتجات</div>
+          <div class="step-choice">🥈 <strong>فضية</strong> — $10 / 250 دج — كورسات</div>
+          <div class="step-choice">🥇 <strong>ذهبية</strong> — $20 / 500 دج — كل شيء</div>
+          <div class="step-choice">📣 <strong>كورس الإعلانات</strong> — $10 / 250 دج</div>
+          <div class="step-choice">🎵 <strong>كورس TikTok بيتا</strong> — $10 / 250 دج</div>
+          <div class="step-choice">📚 <strong>كورس الكتب</strong> — $10 / 250 دج</div>
+          <div class="step-choice">🎨 <strong>كورس كانفا</strong> — $5 / 125 دج</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-t">أرسل المبلغ</div>
+        <div class="step-d">عبر BaridiMob أو Binance أو RedotPay أو CCP<br>وخذ سكرينشوت فوراً</div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-t">أرسل الإثبات على واتساب</div>
+        <div class="step-d">أرسل السكرينشوت على واتساب وستصلك بطاقتك في أقل من 24 ساعة ✅</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="sec fade-in">
+  <div class="container">
+    <h2 class="sec-title">💳 خيارات <span>الدفع الآمنة</span></h2>
+    <p class="sec-sub">4 طرق دفع آمنة ومضمونة — اختر ما يناسبك</p>
+    <div class="divider"></div>
+    <div class="pay-grid">
+      <div class="pay-card pay-baridimob">
+        <div class="pay-app-logo">📱</div>
+        <div class="pay-name">BaridiMob</div>
+        <div class="pay-type">الدفع عبر بريد الجزائر 🇩🇿</div>
+        <div class="pay-info"><strong>RIP:</strong><br>00799999004361621696</div>
+      </div>
+      <div class="pay-card pay-binance">
+        <div class="pay-app-logo" style="color:#000">🟡</div>
+        <div class="pay-name">Binance</div>
+        <div class="pay-type">كريبتو USDT</div>
+        <div class="pay-info"><strong>ID:</strong><br>1090325894</div>
+      </div>
+      <div class="pay-card pay-redotpay">
+        <div class="pay-app-logo">💳</div>
+        <div class="pay-name">RedotPay</div>
+        <div class="pay-type">بطاقة فيزا رقمية</div>
+        <div class="pay-info"><strong>ID:</strong><br>1682068695</div>
+      </div>
+      <div class="pay-card pay-ccp">
+        <div class="pay-app-logo">🏦</div>
+        <div class="pay-name">CCP</div>
+        <div class="pay-type">بريد الجزائر</div>
+        <div class="pay-info">توجّه لأقرب مكتب بريد وأرسل المبلغ — أو تواصل معنا على واتساب للتفاصيل</div>
+      </div>
+    </div>
+    <div class="pay-note">
+      ⚠️ خذ سكرينشوت من عملية الدفع وأرسله على واتساب فوراً<br>
+      ✅ بعد التحقق ستصلك بطاقتك في أقل من 24 ساعة<br>
+      <strong>⚡ يجب إرسال السكرينشوت نفس اليوم الذي أرسلت فيه المبلغ</strong>
+    </div>
+    <div style="text-align:center;margin-top:22px">
+      <a href="https://wa.me/213781044548?text=أريد%20الاستفسار%20عن%20طريقة%20الدفع" class="btn-cta" target="_blank" style="font-size:15px;padding:13px 32px">💬 تواصل معنا للمساعدة</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-dark fade-in">
+  <div class="container">
+    <h2 class="sec-title">❓ الأسئلة <span>الشائعة</span></h2>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">كيف أستلم الباك بعد الدفع؟</div>
+        <div class="faq-a"><div class="faq-a-inner">بعد التحقق من عملية الدفع، نرسل لك الباك مباشرة على واتساب في أقل من 24 ساعة. تأكد من إرسال سكرينشوت الدفع نفس اليوم.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل المنتجات حقيقية وتشتغل فعلاً؟</div>
+        <div class="faq-a"><div class="faq-a-inner">نعم 100% — كل المنتجات حقيقية ومضمونة. +4,800 عميل جزائري اشتروا وراضيين. الثقة عنواننا منذ 2024.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل يمكن الدفع بالدينار الجزائري؟</div>
+        <div class="faq-a"><div class="faq-a-inner">نعم! عبر BaridiMob أو CCP تدفع بالدينار مباشرة. البرونزية ≈ 250 دج | الفضية ≈ 250 دج | الذهبية ≈ 500 دج.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل أحتاج لخبرة مسبقة؟</div>
+        <div class="faq-a"><div class="faq-a-inner">لا! الكورسات مصممة للمبتدئين من 0. والمنتجات جاهزة للبيع مباشرة بدون أي خبرة. كل شيء مشروح خطوة بخطوة.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ما الفرق بين البطاقات الثلاث؟</div>
+        <div class="faq-a"><div class="faq-a-inner">البرونزية: منتجات فقط للبيع المباشر بـ$10. الفضية: كورسات فقط للتعلم بـ$10. الذهبية: كل شيء معاً + متابعة شخصية + تحديثات مجانية للأبد بـ$20.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل يمكنني الحصول على كورس واحد فقط؟</div>
+        <div class="faq-a"><div class="faq-a-inner">نعم! كل كورس متاح لوحده. كورس الإعلانات والكتب وTikTok بيتا بـ $10 فقط، وكورس كانفا بـ $5. أو خذ الذهبية واحصل على الكل بـ$20 فقط.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final fade-in">
+  <h2>هذا مش مجرد باك…<br><span>هذا مشروع كامل بين يديك 💰</span></h2>
+  <p>كل يوم تأخير = يوم ربح ضايع ⏳<br>ابدأ اليوم وخلي أول خطوة نحو الحرية المالية تكون من هنا!</p>
+  <a href="https://wa.me/213781044548?text=السلام%20عليكم%20أريد%20الاستفسار%20عن%20So%20Lo%20Digital%20🔥" class="btn-wa" target="_blank">💬 اطلب الآن عبر واتساب</a>
+  <div class="cta-note">✅ ستصلك بطاقتك في أقل من 24 ساعة</div>
+  <div class="cta-urg">⏳ لأول 50 شخص فقط — لا تفوّت الفرصة!</div>
+</section>
+
+<footer>So Lo Digital ©️ 2026 — جميع الحقوق محفوظة | wa.me/213781044548</footer>
+
+<script>
+// COUNTDOWN
+function startCountdown(){
+  const key='solo_cd_v4';
+  let end=localStorage.getItem(key);
+  if(!end){end=Date.now()+24*60*60*1000;localStorage.setItem(key,end);}
+  function update(){
+    const diff=parseInt(end)-Date.now();
+    if(diff<=0){localStorage.removeItem(key);startCountdown();return;}
+    document.getElementById('cd-h').textContent=String(Math.floor(diff/3600000)).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  }
+  update();setInterval(update,1000);
+}
+startCountdown();
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+
+// SCROLL ANIMATIONS
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
