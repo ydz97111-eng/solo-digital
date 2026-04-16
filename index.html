@@ -4,873 +4,606 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIZPRO | المتجر الرقمي الاحترافي</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<title>DIZPRO - متجر رقمي احترافي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --primary: #00BBF9;
-  --primary-dark: #0099cc;
-  --black: #000000;
-  --white: #ffffff;
-  --gray: #cbd5e0;
-  --smoke: #f5f5f5;
-  --text: #000000;
-  --green-check: #00BBF9;
-}
+  :root {
+    --blue: #00aaff;
+    --blue-dark: #0077cc;
+    --blue-glow: rgba(0,170,255,0.3);
+    --black: #000;
+    --dark: #0a0a0a;
+    --dark2: #111;
+    --white: #fff;
+    --gray: #888;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    direction: rtl;
+  }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-font-family: ‘Tajawal’, sans-serif;
-background: var(–white);
-color: var(–text);
-direction: rtl;
-overflow-x: hidden;
-}
-
-/* ===== NAVBAR ===== */
+/* NAV */
 nav {
-background: var(–black);
-padding: 12px 16px;
+background: #000;
 display: flex;
 align-items: center;
 justify-content: space-between;
+padding: 14px 20px;
 position: sticky;
 top: 0;
-z-index: 1000;
+z-index: 100;
+border-bottom: 1px solid #1a1a1a;
 }
-
-.logo {
+.nav-logo {
 display: flex;
 align-items: center;
-gap: 8px;
-text-decoration: none;
+gap: 10px;
 }
-
-.logo-icon {
+.nav-logo img {
 width: 44px;
 height: 44px;
+border-radius: 50%;
+object-fit: cover;
 }
-
-.logo-icon svg {
-width: 100%;
-height: 100%;
-}
-
-.logo-text {
-color: var(–white);
-font-size: 22px;
+.nav-logo span {
+font-size: 1.3rem;
 font-weight: 900;
-letter-spacing: 1px;
-font-family: ‘Cairo’, sans-serif;
-}
-
-.logo-text span {
-color: var(–primary);
-}
-
-.nav-icons {
-display: flex;
-align-items: center;
-gap: 20px;
-}
-
-.nav-icons svg {
-width: 22px;
-height: 22px;
 color: var(–white);
-cursor: pointer;
 }
+.nav-logo span b { color: var(–blue); }
+.nav-links {
+display: flex;
+gap: 20px;
+list-style: none;
+}
+.nav-links a {
+color: #ccc;
+text-decoration: none;
+font-size: 0.95rem;
+transition: color .2s;
+}
+.nav-links a:hover { color: var(–blue); }
+.nav-icons { display: flex; gap: 14px; align-items: center; }
+.nav-icons a { color: #ccc; font-size: 1.1rem; text-decoration: none; }
 
-.cart-icon { color: var(–primary) !important; }
-
-/* ===== HERO SECTION ===== */
+/* HERO */
 .hero {
-background: linear-gradient(135deg, var(–black) 60%, #003355 100%);
-padding: 50px 20px 60px;
+background: linear-gradient(160deg, #000 40%, #001a2e 100%);
+padding: 60px 20px 50px;
 text-align: center;
 position: relative;
 overflow: hidden;
 }
-
 .hero::before {
 content: ‘’;
 position: absolute;
-top: -50px;
-right: -100px;
-width: 400px;
-height: 400px;
-background: radial-gradient(circle, rgba(0,187,249,0.25) 0%, transparent 70%);
+top: -80px; left: 50%;
+transform: translateX(-50%);
+width: 400px; height: 400px;
+background: radial-gradient(circle, rgba(0,170,255,0.15) 0%, transparent 70%);
 pointer-events: none;
 }
-
 .hero h1 {
-color: var(–white);
-font-size: 38px;
-font-weight: 800;
-line-height: 1.3;
-margin-bottom: 8px;
-}
-
-.hero h2 {
-color: var(–primary);
-font-size: 42px;
+font-size: 2.2rem;
 font-weight: 900;
-margin-bottom: 30px;
-letter-spacing: 2px;
+line-height: 1.3;
+margin-bottom: 16px;
 }
-
-.hero-desc {
-color: var(–primary);
-font-size: 18px;
+.hero h1 span { color: var(–blue); }
+.hero p {
+color: var(–blue);
+font-size: 1rem;
 line-height: 1.8;
-margin-bottom: 40px;
+max-width: 340px;
+margin: 0 auto 28px;
 }
-
-.hero-desc span {
-color: var(–white);
-}
-
-.btn-discover {
+.btn-main {
 display: inline-block;
 border: 2px solid var(–white);
 color: var(–white);
-background: transparent;
-padding: 16px 40px;
-font-family: ‘Tajawal’, sans-serif;
-font-size: 18px;
-font-weight: 600;
-cursor: pointer;
-text-decoration: none;
-transition: all 0.3s;
-}
-
-.btn-discover:hover {
-background: var(–primary);
-border-color: var(–primary);
-}
-
-/* ===== FEATURED PRODUCTS ===== */
-.featured {
-padding: 30px 20px;
-background: var(–white);
-}
-
-.section-title {
-font-size: 28px;
+padding: 13px 36px;
+font-size: 1rem;
+font-family: ‘Cairo’, sans-serif;
 font-weight: 700;
-color: var(–black);
-margin-bottom: 24px;
+text-decoration: none;
+border-radius: 4px;
+transition: all .3s;
+cursor: pointer;
+background: transparent;
+}
+.btn-main:hover {
+background: var(–blue);
+border-color: var(–blue);
 }
 
+/* SEARCH */
+.search-bar {
+padding: 20px;
+background: #000;
+}
+.search-bar input {
+width: 100%;
+padding: 13px 18px;
+background: #111;
+border: 1px solid #222;
+color: #fff;
+font-family: ‘Cairo’, sans-serif;
+font-size: 0.95rem;
+border-radius: 8px;
+outline: none;
+}
+
+/* SECTION TITLE */
+.section-title {
+font-size: 1.4rem;
+font-weight: 900;
+padding: 8px 20px 16px;
+border-right: 4px solid var(–blue);
+}
+
+/* FEATURED PRODUCTS */
 .products-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 14px;
+gap: 12px;
+padding: 0 16px 20px;
 }
-
 .product-card {
+background: #111;
+border-radius: 10px;
+overflow: hidden;
 cursor: pointer;
-text-decoration: none;
-color: inherit;
-display: block;
+border: 1px solid #1a1a1a;
+transition: transform .2s, border-color .2s;
 }
-
+.product-card:hover {
+transform: translateY(-3px);
+border-color: var(–blue);
+}
 .product-card img {
 width: 100%;
+display: block;
 aspect-ratio: 1/1;
 object-fit: cover;
-display: block;
-border-radius: 4px;
 }
-
-.product-card .prod-img-placeholder {
-width: 100%;
-aspect-ratio: 1/1;
-background: linear-gradient(135deg, #0d1520, #1a2535);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 48px;
-border-radius: 4px;
+.product-info {
+padding: 10px;
 }
-
-.product-name {
-font-size: 15px;
-font-weight: 500;
-margin-top: 10px;
-color: var(–black);
+.product-info h3 {
+font-size: 0.85rem;
+font-weight: 700;
+margin-bottom: 6px;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
 }
-
-.product-price {
-font-size: 18px;
-font-weight: 700;
-color: var(–black);
-margin-top: 4px;
-}
-
-.product-compare {
+.price-row {
 display: flex;
 align-items: center;
 gap: 8px;
-margin-top: 2px;
 }
-
+.price-new {
+color: var(–blue);
+font-weight: 900;
+font-size: 1rem;
+}
 .price-old {
-font-size: 14px;
-color: #888;
+color: var(–gray);
 text-decoration: line-through;
+font-size: 0.8rem;
+}
+.discount-badge {
+background: #00aaff22;
+color: var(–blue);
+font-size: 0.7rem;
+padding: 2px 6px;
+border-radius: 20px;
 }
 
-.price-off {
-font-size: 14px;
-color: #12b76a;
-font-weight: 600;
-}
-
-/* ===== WHY US ===== */
-.why-us {
-background: var(–black);
-padding: 50px 20px 40px;
+/* WHY US */
+.why-section {
+background: #000;
+padding: 30px 16px;
 text-align: center;
 }
-
-.why-us h2 {
-color: var(–primary);
-font-size: 32px;
+.why-section h2 {
+font-size: 1.5rem;
 font-weight: 900;
+color: var(–blue);
+margin-bottom: 24px;
 line-height: 1.4;
-margin-bottom: 40px;
 }
-
-.why-us h2 span {
-color: var(–white);
-}
-
-.features-list {
+.why-cards {
 display: flex;
 flex-direction: column;
-gap: 14px;
-}
-
-.feature-item {
-background: var(–white);
-border: 2px solid var(–primary);
-border-radius: 8px;
-padding: 18px 20px;
-font-size: 17px;
-font-weight: 600;
-color: var(–black);
-display: flex;
-align-items: center;
-justify-content: center;
 gap: 10px;
+}
+.why-card {
+border: 1.5px solid #00aaff44;
+border-radius: 10px;
+padding: 16px;
+font-size: 0.95rem;
+font-weight: 600;
 text-align: center;
+background: #0a0a0a;
 }
 
-.feature-item.dark {
-background: var(–black);
-color: var(–white);
-}
-
-.check-icon {
-color: var(–primary);
-font-size: 20px;
-flex-shrink: 0;
-}
-
-/* ===== SEARCH + COLLECTIONS ===== */
-.collections-section {
-padding: 30px 20px;
-background: var(–white);
-}
-
-.search-bar {
-display: flex;
-align-items: center;
-border: 2px solid #cacaca;
-border-radius: 8px;
-padding: 0 14px;
-margin-bottom: 30px;
-background: var(–white);
-}
-
-.search-bar input {
-flex: 1;
-border: none;
-outline: none;
-font-family: ‘Tajawal’, sans-serif;
-font-size: 16px;
-padding: 14px 0;
-background: transparent;
-}
-
-.search-bar button {
-background: none;
-border: none;
-cursor: pointer;
-color: #667085;
-}
-
-.collections-title {
-font-size: 24px;
-font-weight: 700;
-margin-bottom: 18px;
-}
-
-.collections-grid {
+/* CATEGORIES */
+.categories-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 14px;
-}
-
-.collection-card {
-cursor: pointer;
-text-decoration: none;
-color: inherit;
-display: block;
-}
-
-.collection-card img,
-.collection-img {
-width: 100%;
-aspect-ratio: 1/1;
-object-fit: cover;
-border-radius: 6px;
-display: block;
-}
-
-.collection-img-placeholder {
-width: 100%;
-aspect-ratio: 1/1;
-background: linear-gradient(135deg, #0d1520, #1a2535);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 40px;
-border-radius: 6px;
-}
-
-.collection-name {
-font-size: 17px;
-font-weight: 600;
-margin-top: 10px;
-color: var(–black);
-}
-
-/* ===== ALL YOU NEED SECTION ===== */
-.all-need {
-background: var(–black);
-padding: 40px 20px;
-text-align: center;
-}
-
-.all-need h2 {
-color: var(–white);
-font-size: 28px;
-font-weight: 800;
-margin-bottom: 30px;
-line-height: 1.4;
-}
-
-.needs-list {
-display: flex;
-flex-direction: column;
 gap: 12px;
+padding: 0 16px 20px;
 }
-
-.need-item {
-background: var(–white);
-border: 1px solid #333;
-border-radius: 6px;
-padding: 16px 20px;
-font-size: 17px;
-font-weight: 600;
-color: var(–black);
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-}
-
-.need-item.dark {
-background: var(–black);
-color: var(–white);
-border-color: #555;
-}
-
-/* ===== REVIEWS ===== */
-.reviews {
-padding: 0 20px 50px;
-background: linear-gradient(135deg, #ffffff, #7ed756, #37ca37);
-text-align: center;
-}
-
-.reviews-header {
-padding: 40px 0 30px;
-}
-
-.reviews-header .big-title {
-font-size: 60px;
-font-weight: 900;
-color: var(–white);
-line-height: 1;
-}
-
-.reviews-header .sub-title {
-font-family: ‘Georgia’, serif;
-font-style: italic;
-font-size: 36px;
-color: var(–black);
-margin: -10px 0 5px;
-display: block;
-}
-
-/* Override reviews for DIZPRO - use blue gradient */
-.reviews {
-background: linear-gradient(135deg, #ffffff 0%, #003355 40%, #00BBF9 100%);
-}
-
-.reviews-header .big-title {
-color: var(–white);
-}
-.reviews-header .sub-title {
-color: var(–primary);
-}
-
-.review-card {
-background: rgba(0,187,249,0.12);
-border: 1px solid rgba(0,187,249,0.3);
-border-radius: 16px;
-padding: 28px 24px;
-margin-bottom: 16px;
-text-align: right;
-backdrop-filter: blur(8px);
-}
-
-.reviewer-avatar {
-width: 70px;
-height: 70px;
-border-radius: 50%;
-object-fit: cover;
-margin: 0 auto 14px;
-display: block;
-border: 3px solid var(–primary);
-}
-
-.reviewer-avatar-placeholder {
-width: 70px;
-height: 70px;
-border-radius: 50%;
-background: var(–primary);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 28px;
-font-weight: 900;
-color: var(–black);
-margin: 0 auto 14px;
-border: 3px solid var(–primary);
-}
-
-.reviewer-name {
-font-size: 18px;
-font-weight: 700;
-color: var(–white);
-}
-
-.reviewer-role {
-font-size: 14px;
-color: var(–primary);
-margin-bottom: 8px;
-}
-
-.stars {
-color: #FFB800;
-font-size: 20px;
-margin-bottom: 12px;
-}
-
-.review-text {
-font-size: 15px;
-color: rgba(255,255,255,0.9);
-line-height: 1.7;
-}
-
-/* ===== FAQ ===== */
-.faq-section {
-background: var(–white);
-padding: 10px 20px 40px;
-}
-
-.faq-title {
-font-size: 48px;
-font-weight: 900;
-font-style: italic;
-color: var(–black);
-text-align: center;
-padding: 30px 0;
-font-family: ‘Cairo’, sans-serif;
-}
-
-.faq-list {
-display: flex;
-flex-direction: column;
-gap: 12px;
-}
-
-.faq-item {
-background: var(–smoke);
+.cat-card {
+background: #111;
 border-radius: 10px;
 overflow: hidden;
-border: 1px solid var(–smoke);
+cursor: pointer;
+border: 1px solid #1a1a1a;
+transition: border-color .2s;
+}
+.cat-card:hover { border-color: var(–blue); }
+.cat-card img {
+width: 100%;
+display: block;
+aspect-ratio: 1/1;
+object-fit: cover;
+}
+.cat-label {
+padding: 10px;
+font-size: 0.9rem;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 6px;
 }
 
+/* FEATURES LIST */
+.features-section {
+background: #000;
+padding: 30px 16px;
+}
+.features-section h2 {
+font-size: 1.4rem;
+font-weight: 900;
+text-align: center;
+margin-bottom: 20px;
+}
+.feature-item {
+border: 1.5px solid #1e1e1e;
+border-radius: 10px;
+padding: 14px 16px;
+margin-bottom: 10px;
+font-size: 0.95rem;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.feature-item:nth-child(odd) { background: #0d0d0d; }
+
+/* REVIEWS */
+.reviews-section {
+background: linear-gradient(135deg, #0a3d62, #1a7ab5);
+padding: 30px 16px;
+text-align: center;
+}
+.reviews-section h2 {
+font-size: 1.8rem;
+font-weight: 900;
+margin-bottom: 24px;
+}
+.review-card {
+background: rgba(255,255,255,0.1);
+border-radius: 14px;
+padding: 20px;
+margin-bottom: 14px;
+text-align: right;
+backdrop-filter: blur(4px);
+}
+.review-header {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 10px;
+}
+.review-avatar {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: #ccc;
+overflow: hidden;
+flex-shrink: 0;
+}
+.review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.review-name { font-weight: 900; font-size: 1rem; }
+.review-role { font-size: 0.8rem; opacity: 0.8; }
+.stars { color: gold; font-size: 1rem; margin: 4px 0; }
+.review-text { font-size: 0.9rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-section { background: #000; padding: 30px 16px; }
+.faq-title {
+font-size: 1.8rem;
+font-weight: 900;
+text-align: center;
+margin-bottom: 24px;
+}
+.faq-item {
+background: #0d0d0d;
+border: 1px solid #1e1e1e;
+border-radius: 10px;
+margin-bottom: 10px;
+overflow: hidden;
+}
 .faq-question {
-padding: 18px 20px;
+padding: 16px;
+font-size: 0.95rem;
+font-weight: 700;
+cursor: pointer;
 display: flex;
 justify-content: space-between;
 align-items: center;
-cursor: pointer;
-font-size: 16px;
-font-weight: 600;
-color: var(–black);
 user-select: none;
 }
-
-.faq-question .arrow {
-color: var(–black);
-font-size: 14px;
-transition: transform 0.3s;
-flex-shrink: 0;
-margin-right: 8px;
-}
-
 .faq-answer {
 display: none;
-padding: 0 20px 18px;
-font-size: 15px;
-color: #333;
+padding: 0 16px 16px;
+font-size: 0.9rem;
+color: #aaa;
 line-height: 1.7;
-border-top: 1px solid #e0e0e0;
-padding-top: 14px;
 }
+.faq-answer.open { display: block; }
 
-.faq-item.open .faq-answer {
-display: block;
-}
-
-.faq-item.open {
-background: var(–gray);
-}
-
-.faq-item.open .arrow {
-transform: rotate(180deg);
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
-background: var(–black);
-padding: 40px 20px 20px;
+background: #000;
+border-top: 1px solid #1a1a1a;
+padding: 30px 20px;
 text-align: center;
 }
-
 .footer-logo {
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 8px;
-margin-bottom: 16px;
+gap: 10px;
+margin-bottom: 14px;
 }
-
-.footer-logo-text {
-color: var(–white);
-font-size: 22px;
-font-weight: 900;
-font-family: ‘Cairo’, sans-serif;
-}
-
-.footer-logo-text span {
-color: var(–primary);
-}
-
-.footer-desc {
-color: var(–white);
-font-size: 16px;
-line-height: 1.8;
-margin-bottom: 30px;
-}
-
-.footer-grid {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 20px;
-text-align: right;
-margin-bottom: 30px;
-}
-
-.footer-col-title {
-color: var(–primary);
-font-size: 15px;
-font-weight: 700;
-margin-bottom: 12px;
-}
-
-.footer-link {
-display: block;
-color: var(–white);
+.footer-logo img { width: 42px; height: 42px; border-radius: 50%; }
+.footer-logo span { font-size: 1.2rem; font-weight: 900; }
+.footer-logo span b { color: var(–blue); }
+footer p { color: #888; font-size: 0.85rem; margin-bottom: 14px; line-height: 1.7; }
+.social-links { display: flex; justify-content: center; gap: 14px; margin-bottom: 20px; }
+.social-links a {
+width: 38px; height: 38px;
+border-radius: 8px;
+display: flex; align-items: center; justify-content: center;
+font-size: 1rem;
 text-decoration: none;
-font-size: 14px;
-margin-bottom: 8px;
+color: #fff;
 }
+.fb-link { background: #1877f2; }
+.ig-link { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.footer-legal { font-size: 0.75rem; color: #555; }
+.footer-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+.footer-links a { color: #555; font-size: 0.8rem; text-decoration: none; }
+.footer-links a:hover { color: var(–blue); }
 
-.footer-link:hover { color: var(–primary); }
-
-.social-icons {
-display: flex;
-justify-content: center;
-gap: 12px;
-margin-bottom: 20px;
-}
-
-.social-icon {
-width: 42px;
-height: 42px;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 6px;
-text-decoration: none;
-font-size: 18px;
-}
-
-.fb { background: #1877f2; }
-.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
-.footer-copy {
-color: var(–white);
-font-size: 13px;
-border-top: 1px solid #333;
-padding-top: 16px;
-}
-
-/* ===== WA FLOAT ===== */
+/* WHATSAPP FLOAT */
 .wa-float {
 position: fixed;
-bottom: 22px;
-left: 22px;
-width: 60px;
-height: 60px;
-background: #25D366;
+bottom: 24px;
+left: 20px;
+width: 54px; height: 54px;
+background: #25d366;
 border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 4px 16px rgba(37,211,102,0.5);
-cursor: pointer;
-z-index: 9999;
+display: flex; align-items: center; justify-content: center;
+font-size: 1.6rem;
+color: #fff;
 text-decoration: none;
-animation: waPulse 2s infinite;
+box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+z-index: 999;
+animation: pulse 2s infinite;
 }
-
-@keyframes waPulse {
-0%, 100% { box-shadow: 0 4px 16px rgba(37,211,102,0.5); }
+@keyframes pulse {
+0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.8); }
 }
 
-.wa-float svg {
-width: 32px;
-height: 32px;
-fill: var(–white);
-}
-
-/* ===== MOBILE MENU ===== */
-.mobile-menu-overlay {
+/* MODAL */
+.modal-overlay {
 display: none;
 position: fixed;
 inset: 0;
-background: var(–black);
-z-index: 2000;
-flex-direction: column;
-padding: 30px 24px;
+background: rgba(0,0,0,0.92);
+z-index: 200;
+overflow-y: auto;
+padding: 20px;
 }
-
-.mobile-menu-overlay.open {
-display: flex;
+.modal-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
+.modal {
+background: #111;
+border: 1px solid #222;
+border-radius: 16px;
+max-width: 400px;
+width: 100%;
+margin: auto;
+padding: 0 0 24px;
+overflow: hidden;
 }
-
-.mobile-close {
-align-self: flex-end;
-background: none;
-border: none;
-color: var(–white);
-font-size: 26px;
-cursor: pointer;
-margin-bottom: 30px;
-}
-
-.mobile-nav-link {
-color: var(–white);
-text-decoration: none;
-font-size: 22px;
-font-weight: 700;
-padding: 18px 0;
-border-bottom: 1px solid #222;
+.modal img {
+width: 100%;
 display: block;
 }
-
-/* discover btn section */
-.discover-section {
-background: var(–black);
-padding: 30px 20px;
-text-align: center;
+.modal-body { padding: 20px; }
+.modal-body h2 { font-size: 1.2rem; font-weight: 900; margin-bottom: 10px; }
+.modal-body .price { color: var(–blue); font-size: 1.4rem; font-weight: 900; margin-bottom: 14px; }
+.modal-body p { color: #aaa; font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+.modal-btns { display: flex; gap: 10px; }
+.btn-wa {
+flex: 1;
+background: #25d366;
+color: #fff;
+border: none;
+padding: 13px;
+border-radius: 10px;
+font-family: ‘Cairo’, sans-serif;
+font-size: 0.95rem;
+font-weight: 700;
+cursor: pointer;
+text-decoration: none;
+display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.btn-close {
+background: #222;
+color: #fff;
+border: none;
+padding: 13px 18px;
+border-radius: 10px;
+font-family: ‘Cairo’, sans-serif;
+font-size: 0.95rem;
+font-weight: 700;
+cursor: pointer;
 }
 
-@media (min-width: 600px) {
-.products-grid { grid-template-columns: repeat(3, 1fr); }
-.collections-grid { grid-template-columns: repeat(3, 1fr); }
-.hero h1 { font-size: 48px; }
-.hero h2 { font-size: 56px; }
+/* SUB-PRODUCTS MODAL */
+.sub-products { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.sub-product {
+display: flex;
+gap: 12px;
+align-items: center;
+background: #1a1a1a;
+border-radius: 10px;
+padding: 12px;
+cursor: pointer;
+border: 1px solid #2a2a2a;
+transition: border-color .2s;
 }
+.sub-product:hover { border-color: var(–blue); }
+.sub-product img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.sub-info h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+.sub-info .sub-price { color: var(–blue); font-weight: 900; font-size: 0.95rem; }
 </style>
 
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 
 <nav>
-  <a href="#" class="logo">
-    <!-- DIZPRO SVG Logo -->
-    <svg class="logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="40" cy="40" r="38" stroke="#00BBF9" stroke-width="2" fill="#000"/>
-      <!-- Mandala-like pattern -->
-      <circle cx="40" cy="40" r="28" stroke="#00BBF9" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
-      <circle cx="40" cy="40" r="18" stroke="#00BBF9" stroke-width="1.5" fill="none"/>
-      <!-- D letter -->
-      <path d="M30 26 H38 Q50 26 50 40 Q50 54 38 54 H30 Z" stroke="#00BBF9" stroke-width="2" fill="none"/>
-      <line x1="35" y1="26" x2="35" y2="54" stroke="#00BBF9" stroke-width="1.5"/>
-      <!-- Lines pattern -->
-      <line x1="40" y1="12" x2="40" y2="20" stroke="#00BBF9" stroke-width="1.5"/>
-      <line x1="40" y1="60" x2="40" y2="68" stroke="#00BBF9" stroke-width="1.5"/>
-      <line x1="12" y1="40" x2="20" y2="40" stroke="#00BBF9" stroke-width="1.5"/>
-      <line x1="60" y1="40" x2="68" y2="40" stroke="#00BBF9" stroke-width="1.5"/>
-    </svg>
-    <span class="logo-text">DIZ<span>PRO</span></span>
-  </a>
-
-  <div class="nav-icons">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-    </svg>
-    <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <path d="M16 10a4 4 0 0 1-8 0"/>
-    </svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" onclick="openMenu()" style="cursor:pointer">
-      <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
+  <div class="nav-logo">
+    <img src="IMG_3438.png" alt="DIZPRO Logo">
+    <span>DIZ<b>PRO</b></span>
   </div>
+  <ul class="nav-links">
+    <li><a href="#home">الرئيسية</a></li>
+    <li><a href="#products">المنتجات</a></li>
+    <li><a href="#about">من نحن</a></li>
+  </ul>
 </nav>
-
-<!-- MOBILE MENU -->
-
-<div class="mobile-menu-overlay" id="mobileMenu">
-  <button class="mobile-close" onclick="closeMenu()">✕</button>
-  <a href="#" class="mobile-nav-link" onclick="closeMenu()">الرئيسية</a>
-  <a href="#products" class="mobile-nav-link" onclick="closeMenu()">المنتجات</a>
-  <a href="#about" class="mobile-nav-link" onclick="closeMenu()">من نحن</a>
-</div>
 
 <!-- HERO -->
 
-<section class="hero">
-  <h1>طوّر نفسك طوّر شغلك<br>في مكان واحد</h1>
-  <h2>DIZPRO</h2>
-  <p class="hero-desc">
-    <span>متجر رقمي متكامل يقدم لك كل ما تحتاجه لتنتقل لمستوى أعلى</span><br>
-    كورسات متخصصة، قوالب جاهزة، تصاميم إبداعية، أدوات وبرامج
-    تساعدك تشتغل أسرع وتكسب أكثر
-  </p>
-  <a href="#products" class="btn-discover">اكتشف منتجات DIZPRO الآن</a>
+<section id="home" class="hero">
+  <h1>طوّر نفسك<br>طوّر شغلك<br><span>في مكان واحد</span><br>DIZPRO</h1>
+  <p>متجر رقمي متكامل يقدم لك كل ما تحتاجه لتنتقل لمستوى أعلى — كورسات متخصصة، قوالب جاهزة، تصاميم إبداعية، أدوات وبرامج تساعدك تشتغل أسرع وتكسب أكثر</p>
+  <a href="#products" class="btn-main">اكتشف منتجات DIZPRO الآن</a>
 </section>
+
+<!-- SEARCH -->
+
+<div class="search-bar">
+  <input type="text" placeholder="ابحث عن منتج...">
+</div>
 
 <!-- FEATURED PRODUCTS -->
 
-<section class="featured" id="products">
+<section id="products" style="padding: 20px 0 0;">
   <div class="section-title">المنتجات المميزة</div>
   <div class="products-grid">
 
 ```
-<!-- Product 1 -->
-<a class="product-card" href="#" onclick="openWA('كورس TikTok Beta', '$10', '250 دج')">
-  <div class="prod-img-placeholder">🎬</div>
-  <div class="product-name">كورس TikTok Beta الفرنسية</div>
-  <div class="product-price">$10.00</div>
-  <div class="product-compare">
-    <span class="price-old">$49.00</span>
-    <span class="price-off">80% off</span>
+<!-- TikTok Beta -->
+<div class="product-card" onclick="openProduct('tiktok')">
+  <img src="IMG_2361.jpeg" alt="كورس TikTok Beta">
+  <div class="product-info">
+    <h3>كورس TikTok Beta</h3>
+    <div class="price-row">
+      <span class="price-new">$10</span>
+      <span class="price-old">$49</span>
+      <span class="discount-badge">80% off</span>
+    </div>
   </div>
-</a>
+</div>
 
-<!-- Product 2 -->
-<a class="product-card" href="#" onclick="openWA('كورس Facebook & TikTok Ads', '$10', '250 دج')">
-  <div class="prod-img-placeholder">📢</div>
-  <div class="product-name">كورس الإعلانات Facebook & TikTok</div>
-  <div class="product-price">$10.00</div>
-  <div class="product-compare">
-    <span class="price-old">$49.00</span>
-    <span class="price-off">80% off</span>
+<!-- Facebook Ads -->
+<div class="product-card" onclick="openProduct('ads')">
+  <img src="IMG_2363.jpeg" alt="كورس الإعلانات الممولة">
+  <div class="product-info">
+    <h3>كورس Facebook & TikTok Ads</h3>
+    <div class="price-row">
+      <span class="price-new">$10</span>
+      <span class="price-old">$49</span>
+      <span class="discount-badge">80% off</span>
+    </div>
   </div>
-</a>
+</div>
 
-<!-- Product 3 -->
-<a class="product-card" href="#" onclick="openWA('كورس بيع الكتب الرقمية', '$10', '250 دج')">
-  <div class="prod-img-placeholder">📚</div>
-  <div class="product-name">كورس بيع الكتب الرقمية 400K كتاب</div>
-  <div class="product-price">$10.00</div>
-  <div class="product-compare">
-    <span class="price-old">$49.00</span>
-    <span class="price-off">80% off</span>
+<!-- Ebooks -->
+<div class="product-card" onclick="openProduct('ebooks')">
+  <img src="IMG_2365.jpeg" alt="كورس بيع الكتب الرقمية">
+  <div class="product-info">
+    <h3>كورس بيع الكتب الرقمية</h3>
+    <div class="price-row">
+      <span class="price-new">$10</span>
+      <span class="price-old">$49</span>
+      <span class="discount-badge">80% off</span>
+    </div>
   </div>
-</a>
+</div>
 
-<!-- Product 4 -->
-<a class="product-card" href="#" onclick="openWA('كورس يوتيوب', '$10', '250 دج')">
-  <div class="prod-img-placeholder">▶️</div>
-  <div class="product-name">كورس تنمية وصناعة المحتوى يوتيوب</div>
-  <div class="product-price">$10.00</div>
-  <div class="product-compare">
-    <span class="price-old">$49.00</span>
-    <span class="price-off">80% off</span>
+<!-- YouTube -->
+<div class="product-card" onclick="openProduct('youtube')">
+  <img src="IMG_3142.jpeg" alt="كورس يوتيوب">
+  <div class="product-info">
+    <h3>كورس يوتيوب الاحترافي</h3>
+    <div class="price-row">
+      <span class="price-new">$10</span>
+      <span class="price-old">$49</span>
+      <span class="discount-badge">80% off</span>
+    </div>
   </div>
-</a>
+</div>
 
-<!-- Product 5 -->
-<a class="product-card" href="#" onclick="openWA('مقاطع فيروسية 1000+', '$20', '500 دج')">
-  <div class="prod-img-placeholder">🏎️</div>
-  <div class="product-name">+1,000 مقطع فيروسي سريع الانتشار</div>
-  <div class="product-price">$20.00</div>
-  <div class="product-compare">
-    <span class="price-old">$169.00</span>
-    <span class="price-off">88% off</span>
+<!-- Canva -->
+<div class="product-card" onclick="openProduct('canva')">
+  <img src="IMG_2372.jpeg" alt="كورس كانفا برو">
+  <div class="product-info">
+    <h3>كورس كانفا برو</h3>
+    <div class="price-row">
+      <span class="price-new">$10</span>
+      <span class="price-old">$49</span>
+      <span class="discount-badge">80% off</span>
+    </div>
   </div>
-</a>
+</div>
 
-<!-- Product 6 -->
-<a class="product-card" href="#" onclick="openWA('قوالب PowerPoint 52000+', '$5', '125 دج')">
-  <div class="prod-img-placeholder">📊</div>
-  <div class="product-name">+52,000 قالب PowerPoint متحرك</div>
-  <div class="product-price">$5.00</div>
-  <div class="product-compare">
-    <span class="price-old">$179.00</span>
-    <span class="price-off">97% off</span>
+<!-- 1000 Videos -->
+<div class="product-card" onclick="openProduct('videos1000')">
+  <img src="IMG_2844.jpeg" alt="1000 مقطع فيديو">
+  <div class="product-info">
+    <h3>أكثر من 1,000 مقطع فيديو</h3>
+    <div class="price-row">
+      <span class="price-new">$20</span>
+      <span class="price-old">$79</span>
+      <span class="discount-badge">75% off</span>
+    </div>
   </div>
-</a>
+</div>
 ```
 
   </div>
@@ -878,158 +611,111 @@ text-align: center;
 
 <!-- WHY DIZPRO -->
 
-<section class="why-us">
-  <h2>ليه تختار <span>DIZ</span>PRO؟<br>لأنك تستحق أدوات النجاح</h2>
-  <div class="features-list">
-    <div class="feature-item">
-      <span class="check-icon">✅</span>
-      منتجات عربية وعالمية تناسب كل المستويات
-    </div>
-    <div class="feature-item dark">
-      <span class="check-icon">✅</span>
-      تحديثات دائمة ومحتوى متجدد باستمرار
-    </div>
-    <div class="feature-item">
-      <span class="check-icon">✅</span>
-      دفع آمن 100% عبر وسائل متعددة
-    </div>
-    <div class="feature-item dark">
-      <span class="check-icon">✅</span>
-      تسليم فوري بعد الدفع مباشرة بدون انتظار
-    </div>
-    <div class="feature-item">
-      <span class="check-icon">✅</span>
-      منتجات مختارة من خبراء في مجالات متعددة
-    </div>
+<section class="why-section">
+  <h2>ليه تختار DIZPRO؟<br>لأنك تستحق أدوات النجاح</h2>
+  <div class="why-cards">
+    <div class="why-card">✅ منتجات عربية وعالمية تناسب كل المستويات</div>
+    <div class="why-card">✅ تحديثات دائمة ومحتوى متجدد باستمرار</div>
+    <div class="why-card">✅ دفع آمن 100% عبر وسائل متعددة</div>
+    <div class="why-card">✅ تسليم فوري بعد الدفع مباشرة بدون انتظار</div>
+    <div class="why-card">✅ دعم على مدار الساعة عبر واتساب</div>
   </div>
 </section>
 
-<!-- DISCOVER BTN + SEARCH + COLLECTIONS -->
+<!-- CATEGORIES -->
 
-<section class="discover-section">
-  <a href="#products" class="btn-discover">اكتشف منتجات DIZPRO الآن</a>
-</section>
+<section id="categories" style="padding: 20px 0 0;">
+  <div class="section-title">المجموعات</div>
+  <div class="categories-grid">
 
-<section class="collections-section">
-  <div class="search-bar">
-    <button>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2">
-        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-      </svg>
-    </button>
-    <input type="text" placeholder="Search for a Product" />
-  </div>
+```
+<div class="cat-card" onclick="openCategory('courses')">
+  <img src="IMG_2269.png" alt="دورات تعليمية">
+  <div class="cat-label">📚 دورات تعليمية →</div>
+</div>
 
-  <div class="collections-title">المجموعات</div>
-  <div class="collections-grid">
-    <a class="collection-card" href="#">
-      <div class="collection-img-placeholder">🎨</div>
-      <div class="collection-name">قوالب كانفا ←</div>
-    </a>
-    <a class="collection-card" href="#">
-      <div class="collection-img-placeholder">📖</div>
-      <div class="collection-name">كتب رقمية ←</div>
-    </a>
-    <a class="collection-card" href="#">
-      <div class="collection-img-placeholder">🎓</div>
-      <div class="collection-name">كورسات ←</div>
-    </a>
-    <a class="collection-card" href="#">
-      <div class="collection-img-placeholder">📊</div>
-      <div class="collection-name">PowerPoint ←</div>
-    </a>
-    <a class="collection-card" href="#">
-      <div class="collection-img-placeholder">🎬</div>
-      <div class="collection-name">فيديوهات ←</div>
-    </a>
-    <a class="collection-card" href="#">
-      <div class="collection-img-placeholder">🖥️</div>
-      <div class="collection-name">WordPress ←</div>
-    </a>
+<div class="cat-card" onclick="openCategory('marketing-videos')">
+  <img src="IMG_3436.jpeg" alt="فيديوهات تسويقية">
+  <div class="cat-label">🎬 فيديوهات تسويقية →</div>
+</div>
+
+<div class="cat-card" onclick="openCategory('templates')">
+  <img src="IMG_2601.jpeg" alt="قوالب كانفا">
+  <div class="cat-label">🎨 قوالب كانفا →</div>
+</div>
+
+<div class="cat-card" onclick="openCategory('logos')">
+  <img src="IMG_2165.jpeg" alt="قوالب لوقو">
+  <div class="cat-label">💎 قوالب لوقو →</div>
+</div>
+
+<div class="cat-card" onclick="openCategory('ebooks-cat')">
+  <img src="IMG_2146.jpeg" alt="كتب رقمية">
+  <div class="cat-label">📖 كتب رقمية →</div>
+</div>
+```
+
   </div>
 </section>
 
-<!-- ALL YOU NEED -->
+<!-- FEATURES -->
 
-<section class="all-need">
+<section class="features-section">
   <h2>كل اللي تحتاجه لتبدأ أو تتطور في مجالك</h2>
-  <div class="needs-list">
-    <div class="need-item">
-      <span style="color:var(--primary)">✅</span> قوالب عمل وعروض تقديمية جاهزة
-    </div>
-    <div class="need-item dark">
-      <span style="color:var(--primary)">✅</span> أدوات ذكاء صناعي وأوتوميشن
-    </div>
-    <div class="need-item">
-      <span style="color:var(--primary)">✅</span> كورسات تعليمية احترافية
-    </div>
-    <div class="need-item dark">
-      <span style="color:var(--primary)">✅</span> تصاميم وعناصر جرافيك
-    </div>
-    <div class="need-item">
-      <span style="color:var(--primary)">✅</span> برامج وأدوات رقمية
-    </div>
-    <div class="need-item dark">
-      <span style="color:var(--primary)">✅</span> تصاميم عصرية
-    </div>
-    <div class="need-item">
-      <span style="color:var(--primary)">✅</span> العاب عالمية
-    </div>
-    <div class="need-item dark">
-      <span style="color:var(--primary)">✅</span> اشتراكات رقمية
-    </div>
-    <div class="need-item">
-      <span style="color:var(--primary)">✅</span> كتب رقمية
-    </div>
-  </div>
+  <div class="feature-item">✅ قوالب عمل وعروض تقديمية جاهزة</div>
+  <div class="feature-item">✅ أدوات ذكاء صناعي وأوتوميشن</div>
+  <div class="feature-item">✅ كورسات تعليمية احترافية</div>
+  <div class="feature-item">✅ تصاميم وعناصر جرافيك</div>
+  <div class="feature-item">✅ برامج وأدوات رقمية</div>
+  <div class="feature-item">✅ فيديوهات تسويقية جاهزة للنشر</div>
+  <div class="feature-item">✅ كتب رقمية في كل المجالات</div>
 </section>
 
 <!-- REVIEWS -->
 
-<section class="reviews">
-  <div class="reviews-header">
-    <span class="sub-title">Client</span>
-    <div class="big-title">آراء عملائنا</div>
+<section class="reviews-section">
+  <h2>آراء عملائنا</h2>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">
+        <img src="https://i.pravatar.cc/100?img=11" alt="">
+      </div>
+      <div>
+        <div class="review-name">وائل طه</div>
+        <div class="review-role">مسوق الكتروني</div>
+        <div class="stars">⭐⭐⭐⭐</div>
+      </div>
+    </div>
+    <div class="review-text">صراحة انا كنت قلقان علشان التصاميم ممكن تكون قديمة بس طلعت خرافية</div>
   </div>
 
   <div class="review-card">
-    <div class="reviewer-avatar-placeholder">و</div>
-    <div class="reviewer-name">وائل طه</div>
-    <div class="reviewer-role">مسوق الكتروني</div>
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      صراحة انا كنت قلقان علشان التصاميم ممكن تكون قديمة بس طلعت خرافية
+    <div class="review-header">
+      <div class="review-avatar">
+        <img src="https://i.pravatar.cc/100?img=5" alt="">
+      </div>
+      <div>
+        <div class="review-name">نسرين محمد</div>
+        <div class="review-role">صاحبة مشروع رقمي</div>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+      </div>
     </div>
+    <div class="review-text">الكورسات واضحة ومفيدة جداً، بديت أربح من الأسبوع الأول بعد تطبيق اللي تعلمته</div>
   </div>
 
   <div class="review-card">
-    <div class="reviewer-avatar-placeholder">ن</div>
-    <div class="reviewer-name">نسرين محمد</div>
-    <div class="reviewer-role">مسوقة الكترونية</div>
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      الكتب اللي اشتريتها فعلاً وفرت علي وقت ومجهود كبير شكرا
+    <div class="review-header">
+      <div class="review-avatar">
+        <img src="https://i.pravatar.cc/100?img=33" alt="">
+      </div>
+      <div>
+        <div class="review-name">يوسف بن علي</div>
+        <div class="review-role">مبدع رقمي</div>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+      </div>
     </div>
-  </div>
-
-  <div class="review-card">
-    <div class="reviewer-avatar-placeholder">أ</div>
-    <div class="reviewer-name">احمد سامي</div>
-    <div class="reviewer-role">مصمم جرافيك</div>
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      اشتريت قوالب جاهزة من DIZPRO وساعدتني أقدّم شغلي بشكل احترافي خلال ساعات بدل أيام!
-    </div>
-  </div>
-
-  <div class="review-card">
-    <div class="reviewer-avatar-placeholder">س</div>
-    <div class="reviewer-name">سارة القحطاني</div>
-    <div class="reviewer-role">مصممة وأصحاب متجر</div>
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      شتريت الحزمة وطبقت الشرح، المنتج جاهز فعلاً ويوفر عليّ وقت كبير. أنصح به لأي شخص يريد يبدأ دخل من الإنترنت بدون تعقيد.
-    </div>
+    <div class="review-text">القوالب احترافية وتوفر وقت رهيب، نصيحتي لأي واحد يبدأ يشتغل على النت</div>
   </div>
 </section>
 
@@ -1037,139 +723,284 @@ text-align: center;
 
 <section class="faq-section">
   <div class="faq-title">الأسئلة الشائعة</div>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        هل هذه المنتجات رقمية أم سيتم شحنها ؟
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-answer">كل المنتجات رقمية 100% ويتم تحميلها مباشرة بعد إتمام عملية الشراء.</div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      هل هذه المنتجات رقمية أم سيتم شحنها ؟
+      <span>▼</span>
     </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        هل أحتاج اشتراك شهري؟
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-answer">لا ❌، تدفع مرة واحدة فقط وتحصل على المنتج مع استخدام وملكية مدى الحياة.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        هل أستطيع بيع المنتجات باسمي أو ضمن متجري؟
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-answer">نعم، يمكنك بيع المنتجات ضمن متجرك أو منصتك الخاصة وبأسعار تحددها أنت.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        متى أستلم المنتج بعد الدفع فورًا ؟
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-answer">⏱️ رابط التحميل يصلك مباشرة، وفريق الدعم جاهز على واتساب في أي وقت.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        هل المنتجات مناسبة للمبتدئين ؟
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-answer">نعم، لا تحتاج خبرة مسبقة، المنتجات جاهزة وسهلة الاستخدام.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        هل هناك استرجاع للأموال ؟
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-answer">بسبب طبيعة المنتجات الرقمية، لا يمكن استرجاع المنتج بعد التحميل، لكننا نضمن الجودة والدعم الكامل.</div>
-    </div>
+    <div class="faq-answer">نعم، جميع منتجاتنا رقمية 100% ويتم تسليمها فوراً بعد الدفع عبر واتساب أو رابط تحميل مباشر.</div>
   </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      هل أحتاج اشتراك شهري؟
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">لا، الدفع لمرة واحدة فقط وتحصل على المنتج للأبد مع التحديثات المجانية.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      هل أستطيع بيع المنتجات باسمي أو ضمن متجري؟
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">نعم، بعض المنتجات تأتي بحقوق إعادة البيع الكاملة. تواصل معنا عبر واتساب للاستفسار عن أي منتج.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      متى أستلم المنتج بعد الدفع فوراً ؟
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">التسليم فوري خلال دقائق عبر واتساب بعد تأكيد الدفع.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      هل المنتجات مناسبة للمبتدئين ؟
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">بالتأكيد! جميع منتجاتنا مصممة لتناسب المبتدئين والمحترفين على حد سواء.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      هل هناك استرجاع للأموال ؟
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">نعم، نضمن رضاك التام. إذا واجهت أي مشكلة تواصل معنا خلال 24 ساعة وسنجد لك حلاً.</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" style="background:#050505; padding: 30px 20px; text-align:center;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+    <img src="IMG_3438.png" style="width:50px;height:50px;border-radius:50%;" alt="DIZPRO">
+    <span style="font-size:1.3rem;font-weight:900;">DIZ<span style="color:var(--blue);">PRO</span></span>
+  </div>
+  <p style="color:#aaa;line-height:1.8;margin-bottom:16px;">
+    <b style="color:var(--blue);">DIZPRO</b> — ليست مجرد منصة لبيع المنتجات الرقمية فقط،
+    بل هي بيئة متكاملة تساعدك على التطوّر، الإنتاج، وبناء مصدر دخل حقيقي من الإنترنت.
+    نحن نؤمن أنّ أي شخص — مهما كان مستواه — يمكنه أن يبدأ، يتعلّم، ويتحوّل إلى شخص منتج وناجح في العالم الرقمي.
+  </p>
 </section>
 
 <!-- FOOTER -->
 
 <footer>
   <div class="footer-logo">
-    <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
-      <circle cx="40" cy="40" r="38" stroke="#00BBF9" stroke-width="2" fill="#000"/>
-      <circle cx="40" cy="40" r="28" stroke="#00BBF9" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
-      <circle cx="40" cy="40" r="18" stroke="#00BBF9" stroke-width="1.5" fill="none"/>
-      <path d="M30 26 H38 Q50 26 50 40 Q50 54 38 54 H30 Z" stroke="#00BBF9" stroke-width="2" fill="none"/>
-      <line x1="35" y1="26" x2="35" y2="54" stroke="#00BBF9" stroke-width="1.5"/>
-    </svg>
-    <span class="footer-logo-text">DIZ<span>PRO</span></span>
+    <img src="IMG_3438.png" alt="DIZPRO">
+    <span>DIZ<b>PRO</b></span>
   </div>
-  <div class="footer-desc">
-    متجر رقمي يوفر منتجات رقمية<br>
-    وقوالب جاهزة تساعدك على نمو أعمالك<br>
-    ....بسهولة وسرعة
+  <p>متجر رقمي يوفر منتجات رقمية وقوالب جاهزة تساعدك على نمو أعمالك بسهولة وسرعة...</p>
+  <div style="color:#555;font-size:0.8rem;margin-bottom:10px;">FOLLOW US</div>
+  <div class="social-links">
+    <a href="#" class="fb-link">f</a>
+    <a href="#" class="ig-link">📸</a>
   </div>
-
-  <div class="footer-grid">
-    <div>
-      <div class="footer-col-title">FOLLOW US</div>
-      <div class="social-icons" style="justify-content:flex-start">
-        <a href="#" class="social-icon fb">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" class="social-icon ig">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact Us</div>
-      <a href="mailto:support@dizpro.com" class="footer-link">Email: support@dizpro.com</a>
-    </div>
-    <div>
-      <div class="footer-col-title">LEGAL</div>
-      <a href="#" class="footer-link">PRIVACY POLICY</a>
-      <a href="#" class="footer-link">Terms & Conditions</a>
-      <a href="#" class="footer-link">Refund policy</a>
-    </div>
+  <div style="color:#555;font-size:0.8rem;margin-bottom:6px;">Contact Us</div>
+  <div style="color:#777;font-size:0.82rem;margin-bottom:16px;">Email: support@dizpro.online</div>
+  <div class="footer-links">
+    <a href="#">PRIVACY POLICY</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Refund policy</a>
   </div>
-
-  <div class="footer-copy">Copyright 2026. DIZPRO service. All Rights Reserved.</div>
+  <div class="footer-legal">Copyright 2026. DIZPRO. All Rights Reserved.</div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
 
-<a class="wa-float" href="https://wa.me/213XXXXXXXXX" target="_blank" aria-label="واتساب">
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 0C7.163 0 0 7.162 0 16c0 2.813.729 5.448 1.997 7.756L0 32l8.533-2.235C11.018 31.346 13.431 32 16 32c8.837 0 16-7.162 16-16S24.837 0 16 0zm0 29.867c-2.321 0-4.512-.678-6.354-1.847l-.454-.286-5.062 1.327 1.361-4.927-.296-.476C4.03 22.082 3.2 19.123 3.2 16c0-7.043 5.757-12.8 12.8-12.8S28.8 8.957 28.8 16 23.043 28.8 16 28.8zm7.486-9.773c-.298-.149-1.758-.868-2.03-.967-.273-.099-.472-.149-.672.149s-.773.967-.949 1.166c-.173.199-.347.224-.644.075-.298-.149-1.26-.465-2.4-1.483-.887-.792-1.487-1.766-1.66-2.064-.173-.299-.018-.46.13-.608.133-.133.298-.348.447-.523.149-.174.199-.299.298-.498.1-.199.05-.373-.025-.522s-.648-1.566-.887-2.148c-.233-.561-.469-.485-.672-.495l-.573-.01c-.199 0-.523.075-.798.373-.273.299-1.047 1.024-1.047 2.497s1.072 2.897 1.222 3.096c.149.199 2.113 3.235 5.109 4.527.714.308 1.27.492 1.712.637.714.232 1.348.196 1.855.122.563-.084 1.758-.715 2.007-1.418.25-.704.25-1.318.18-1.452-.07-.134-.273-.224-.572-.373z"/>
-  </svg>
-</a>
+<a class="wa-float" href="https://wa.me/213781044548" target="_blank">💬</a>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <img id="modalImg" src="" alt="">
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <div class="price" id="modalPrice"></div>
+      <p id="modalDesc"></p>
+      <div class="modal-btns">
+        <a id="modalWA" class="btn-wa" href="#" target="_blank">🛒 اطلب الآن عبر واتساب</a>
+        <button class="btn-close" onclick="closeModal()">✕</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY MODAL -->
+
+<div class="modal-overlay" id="catModal">
+  <div class="modal">
+    <div class="modal-body">
+      <h2 id="catTitle" style="margin-bottom:16px;"></h2>
+      <div class="sub-products" id="subProducts"></div>
+      <button class="btn-close" style="margin-top:16px;width:100%;" onclick="closeCatModal()">✕ إغلاق</button>
+    </div>
+  </div>
+</div>
 
 <script>
-const WA = '213XXXXXXXXX'; // ← ضع رقمك هنا
+const WA_NUMBER = '213781044548';
+const WA_BASE = `https://wa.me/${WA_NUMBER}?text=`;
 
-function openMenu() {
-  document.getElementById('mobileMenu').classList.add('open');
+const products = {
+  tiktok: {
+    img: 'IMG_2361.jpeg',
+    title: 'كورس إنشاء حسابات TikTok Beta الفرنسية',
+    price: '$10',
+    desc: 'تعلم كيف تنشئ حسابات TikTok Beta فرنسية تستهدف الأجانب، تربح من المشاهدات وتبيع الحسابات بـ$5. يشمل +40 فيديو تعليمي من 0 للاحتراف، استراتيجية البيع الذكية، وكل ما تحتاجه لتحقيق دخل حقيقي.'
+  },
+  ads: {
+    img: 'IMG_2363.jpeg',
+    title: 'كورس Facebook & TikTok Ads — الإعلانات الممولة',
+    price: '$10',
+    desc: 'كورس شامل من إنشاء الحسابات حتى تحقيق أرباح حقيقية. يغطي Business Manager، الاستهداف بالذكاء، Ad Creative، Pixel، CAPI، TikTok Ads الجزائر، وأدوات ما بعد الإعلانات. يشمل أيضاً كورس فتح حسابات استقبال الأموال.'
+  },
+  ebooks: {
+    img: 'IMG_2365.jpeg',
+    title: 'كورس بيع الكتب الرقمية — أكثر من 400,000 كتاب',
+    price: '$10',
+    desc: 'عندك أكثر من 400,000 كتاب رقمي جاهز للبيع فوراً. الكورس يعلمك كيف تبيعهم على Etsy، Gumroad، Envato، وغيرها. يشمل كورس فتح المنصات، استقبال الأموال عبر PayPal وBinance، وكل ما تحتاجه لدخل مستمر.'
+  },
+  youtube: {
+    img: 'IMG_3142.jpeg',
+    title: 'كورس يوتيوب — بناء قناة ناجحة ومربحة',
+    price: '$10',
+    desc: 'كل ما تحتاجه لبناء قناة يوتيوب ناجحة — قوالب القناة، مؤثرات صوتية، SEO يوتيوب، صور مصغرة احترافية (+600 صورة)، انتقالات، أزرار اشتراك متحركة، ودورات الفيديو الكاملة من 0 للاحتراف. هدفك 1M+ مشترك!'
+  },
+  canva: {
+    img: 'IMG_2372.jpeg',
+    title: 'كورس كانفا برو — أسرار ومعلومات حصرية',
+    price: '$10',
+    desc: 'أكثر من +1,000 قالب فاخر قابل للتعديل في كانفا. يشمل: Social Media، YouTube، Logo Design، Business Cards، وأكثر من 30 فئة. مع كورس كامل لكيفية بيع التصاميم وتحقيق دخل يومي من كانفا.'
+  },
+  logos: {
+    img: 'IMG_2165.jpeg',
+    title: 'حزمة قوالب Logo احترافية — +600 قالب',
+    price: '$5',
+    desc: 'أكثر من 600 قالب شعار Logo قابل للتعديل 100%، في كل الفئات: Lion Brand، Tech & Digital، Gold Premium، Natural & Bio، Beauty Salon، Music Studio، Restaurant، Gym & Fitness، Real Estate، Barber Shop. بالعربية والإنجليزية، جاهزة فوراً مع حقوق تجارية كاملة.'
+  },
+  wordpress: {
+    img: 'IMG_2601.jpeg',
+    title: 'حزمة WordPress الشاملة — +7,200 إضافة وقالب',
+    price: '$5',
+    desc: 'أكثر من 7,200 إضافة وقالب WordPress احترافي. يشمل WooCommerce، Security Pro، Speed & Cache، LMS Education، Yoast SEO، WP Rocket، Elementor Pro، MailChimp، وكثير. تحديثات مجانية ومفتوح المصدر GPL.'
+  },
+  canva10k: {
+    img: 'IMG_2601.jpeg',
+    title: 'حزمة قوالب كانفا Premium — +10,000 قالب',
+    price: '$5',
+    desc: 'أكثر من 10,000 قالب كانفا فاخر قابل للتعديل بـ100% — Instagram، Facebook، TikTok، YouTube، Print. قابل للتعديل، تنزيل فوري، حقوق تجارية كاملة.'
+  },
+  videos1000: {
+    img: 'IMG_2844.jpeg',
+    title: 'أكثر من 1,000 مقطع فيديو سريع الانتشار',
+    price: '$20',
+    desc: 'مجموعة ضخمة من أكثر من 1,000 مقطع فيديو فيروسي بجودة HD/4K — سيارات فاخرة، قصور، يخوت، طبيعة، أسلوب حياة راقي. مناسب لـTikTok وInstagram وFacebook. حقوق تجارية كاملة، تنزيل فوري.'
+  },
+  marketing: {
+    img: 'IMG_3436.jpeg',
+    title: 'فيديوهات تسويقية احترافية',
+    price: '$20',
+    desc: 'محتوى فيديو جاهز للنشر على سوشيال ميديا. فيديوهات تسويقية بجودة عالية 4K، مناسبة للإنستغرام والتيكتوك، حقوق تجارية، تنزيل فوري، محتوى حصري.'
+  }
+};
+
+const categories = {
+  courses: {
+    title: '📚 الدورات التعليمية',
+    items: ['tiktok','ads','ebooks','youtube','canva']
+  },
+  'marketing-videos': {
+    title: '🎬 فيديوهات تسويقية',
+    items: ['videos1000','marketing']
+  },
+  templates: {
+    title: '🎨 القوالب',
+    items: ['canva','logos','canva10k','wordpress']
+  },
+  logos: {
+    title: '💎 قوالب لوقو',
+    items: ['logos']
+  },
+  'ebooks-cat': {
+    title: '📖 كتب رقمية',
+    items: ['ebooks']
+  }
+};
+
+const catImages = {
+  tiktok: 'IMG_2361.jpeg',
+  ads: 'IMG_2363.jpeg',
+  ebooks: 'IMG_2365.jpeg',
+  youtube: 'IMG_3142.jpeg',
+  canva: 'IMG_2372.jpeg',
+  logos: 'IMG_2165.jpeg',
+  wordpress: 'IMG_2601.jpeg',
+  canva10k: 'IMG_2601.jpeg',
+  videos1000: 'IMG_2844.jpeg',
+  marketing: 'IMG_3436.jpeg'
+};
+
+function openProduct(key) {
+  const p = products[key];
+  if (!p) return;
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalPrice').textContent = p.price;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalWA').href = WA_BASE + encodeURIComponent(`مرحباً، أريد طلب: ${p.title} بسعر ${p.price}`);
+  document.getElementById('productModal').classList.add('active');
 }
-function closeMenu() {
-  document.getElementById('mobileMenu').classList.remove('open');
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('active');
+}
+
+function openCategory(key) {
+  const cat = categories[key];
+  if (!cat) return;
+  document.getElementById('catTitle').textContent = cat.title;
+  const container = document.getElementById('subProducts');
+  container.innerHTML = '';
+  cat.items.forEach(itemKey => {
+    const p = products[itemKey];
+    if (!p) return;
+    const div = document.createElement('div');
+    div.className = 'sub-product';
+    div.onclick = () => { closeCatModal(); openProduct(itemKey); };
+    div.innerHTML = `
+      <img src="${catImages[itemKey] || p.img}" alt="${p.title}">
+      <div class="sub-info">
+        <h4>${p.title}</h4>
+        <div class="sub-price">${p.price}</div>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+  document.getElementById('catModal').classList.add('active');
+}
+
+function closeCatModal() {
+  document.getElementById('catModal').classList.remove('active');
 }
 
 function toggleFaq(el) {
-  const item = el.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+  const ans = el.nextElementSibling;
+  ans.classList.toggle('open');
+  el.querySelector('span').textContent = ans.classList.contains('open') ? '▲' : '▼';
 }
 
-function openWA(product, priceUSD, priceDZD) {
-  const msg = encodeURIComponent(`مرحباً، أريد الاستفسار عن: ${product}\nالسعر: ${priceUSD} / ${priceDZD}`);
-  window.open(`https://wa.me/${WA}?text=${msg}`, '_blank');
-}
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  if (a.getAttribute('href').length > 1) {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
+// Close modals on overlay click
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.getElementById('catModal').addEventListener('click', function(e) {
+  if (e.target === this) closeCatModal();
 });
 </script>
 
